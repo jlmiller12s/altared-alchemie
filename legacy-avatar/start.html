@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Legacy Avatar Intake</title>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="/env.js"></script>
+  </head>
+  <body class="bg-neutral-950 text-white antialiased">
+    <main class="mx-auto max-w-3xl px-6 py-10">
+      <h1 class="text-3xl font-extrabold">Legacy Avatar Intake</h1>
+      <p class="mt-2 text-white/80">All questions are required unless noted. Keep your responses concise.</p>
+
+      <form id="intake" class="mt-8 space-y-6">
+        <section class="lv-card space-y-4">
+          <div>
+            <label class="block text-sm">Full legal name</label>
+            <input name="q1_fullName" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" />
+          </div>
+          <div>
+            <label class="block text-sm">Preferred name on screen</label>
+            <input name="q2_preferredName" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" />
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm">Date of birth</label>
+              <input type="date" name="q3_dob" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm">Email</label>
+              <input type="email" name="q4_email" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" />
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm">Mobile number</label>
+              <input type="tel" name="q5_phone" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm">City and state for governing law</label>
+              <input name="q6_cityState" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm">Do you have full capacity to consent today</label>
+            <select name="q7_capacityOk" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"><option value="">Select</option><option>Yes</option><option>No</option></select>
+          </div>
+          <div>
+            <label class="block text-sm">If someone may act for you now or later list name email and phone of guardian or power of attorney if any (Optional)</label>
+            <textarea name="q8_poaBlock" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea>
+          </div>
+        </section>
+
+        <section class="lv-card space-y-4">
+          <div>
+            <label class="block text-sm">Why are you creating a Legacy Avatar one or two sentences</label>
+            <textarea name="q9_purpose" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Top three messages you want preserved</label>
+            <small class="block text-white/60">Values Blessings Stories</small>
+            <textarea name="q10_topMessages" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Milestones you want messages for</label>
+            <div class="mt-1 grid grid-cols-2 gap-2">
+              <label class="flex items-center gap-2"><input type="checkbox" name="q11_milestones" value="Birthdays"> Birthdays</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q11_milestones" value="Graduations"> Graduations</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q11_milestones" value="Weddings"> Weddings</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q11_milestones" value="Anniversaries"> Anniversaries</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q11_milestones" value="Other"> Other</label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm">Faith and values emphasis you want included if any (Optional)</label>
+            <textarea name="q12_valuesNote" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Languages needed beyond English</label>
+            <div class="mt-1 grid grid-cols-2 gap-2">
+              <label class="flex items-center gap-2"><input type="checkbox" name="q13_languages" value="Spanish"> Spanish</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q13_languages" value="French"> French</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q13_languages" value="None"> None</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q13_languages" value="Other"> Other</label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm">Who can view your private portal list names and emails</label>
+            <textarea name="q14_accessList" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Post mortem choice</label>
+            <select name="q15_postMortem" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2">
+              <option value="">Select</option>
+              <option value="continue">Continue hosting after my passing with a named rights holder</option>
+              <option value="delete">Delete avatar upon notice of my passing and deliver final media to my estate contact</option>
+            </select>
+          </div>
+          <div id="rightsHolder" class="hidden grid md:grid-cols-2 gap-4">
+            <div><label class="block text-sm">Rights holder name</label><input name="q16_name" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div><label class="block text-sm">Relation</label><input name="q16_relation" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div><label class="block text-sm">Email</label><input type="email" name="q16_email" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div><label class="block text-sm">Phone</label><input name="q16_phone" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div class="md:col-span-2"><label class="block text-sm">Mailing address</label><textarea name="q16_address" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea></div>
+          </div>
+          <div id="estateContact" class="hidden grid md:grid-cols-2 gap-4">
+            <div><label class="block text-sm">Estate contact name</label><input name="q17_name" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div><label class="block text-sm">Relation</label><input name="q17_relation" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div><label class="block text-sm">Email</label><input type="email" name="q17_email" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div><label class="block text-sm">Phone</label><input name="q17_phone" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></div>
+            <div class="md:col-span-2"><label class="block text-sm">Mailing address</label><textarea name="q17_address" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea></div>
+          </div>
+        </section>
+
+        <section class="lv-card space-y-4">
+          <div>
+            <label class="block text-sm">On screen label text to use</label>
+            <textarea name="q18_labelText" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2">AI generated message created from my recorded likeness and voice with my permission</textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Spoken disclosure line to use</label>
+            <textarea name="q19_spokenDisclosure" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2">This is an AI generated message created from my recorded likeness and voice with my permission</textarea>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div><label class="block text-sm">Confirm both disclosures will appear on every synthetic clip</label><select name="q20_disclosureOk" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+            <div><label class="block text-sm">Confirm the avatar will never be presented as live human speech without disclosure</label><select name="q21_noDeceptionOk" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+            <div><label class="block text-sm">Confirm that endorsements politics medical and financial advice are out of scope unless re approved</label><select name="q22_redLinesOk" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+          </div>
+        </section>
+
+        <section class="lv-card space-y-4">
+          <div>
+            <label class="block text-sm">Recording location</label>
+            <select name="q23_locationPref" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"><option value="">Select</option><option>Home or studio</option><option>Off site</option></select>
+          </div>
+          <div>
+            <label class="block text-sm">Wardrobe plan</label>
+            <small class="block text-white/60">Simple solids plus one backup</small>
+            <input name="q24_wardrobe" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2">
+          </div>
+          <div>
+            <label class="block text-sm">Any health or accessibility needs (Optional)</label>
+            <textarea name="q25_accessibility" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Preferred delivery method</label>
+            <select name="q26_deliveryPref" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2"><option value="">Select</option><option>Private portal only</option><option>Portal plus USB keepsake</option></select>
+          </div>
+          <div>
+            <label class="block text-sm">Add ons you want now</label>
+            <div class="mt-1 grid grid-cols-2 gap-2">
+              <label class="flex items-center gap-2"><input type="checkbox" name="q27_addOns" value="Memorial edit"> Memorial edit</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q27_addOns" value="Family Q and A"> Family Q and A</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q27_addOns" value="Multilingual version"> Multilingual version</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="q27_addOns" value="None"> None</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="lv-card space-y-4">
+          <h2 class="text-xl font-semibold">Memory Wall</h2>
+          <p class="text-white/70">Add up to three short memory stories or quotes to feature on your Memory Wall. You can edit these later in the portal.</p>
+          <div>
+            <label class="block text-sm">Memory story 1</label>
+            <textarea name="q31_memory1" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" rows="4" placeholder="A short quote or memory"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Memory story 2 (Optional)</label>
+            <textarea name="q32_memory2" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" rows="4" placeholder="A short quote or memory"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm">Memory story 3 (Optional)</label>
+            <textarea name="q33_memory3" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2" rows="4" placeholder="A short quote or memory"></textarea>
+          </div>
+        </section>
+
+        <section class="lv-card space-y-4">
+          <div>
+            <label class="block text-sm">Upload government ID photo</label>
+            <small class="block text-white/60">Redact number except last four</small>
+            <input type="file" accept=".jpg,.jpeg,.png,.pdf" name="q28_idDoc" required class="mt-1 w-full" />
+          </div>
+          <div>
+            <label class="block text-sm">Upload a headshot for brand consistency</label>
+            <input type="file" accept=".jpg,.jpeg,.png" name="q29_headshot" required class="mt-1 w-full" />
+          </div>
+          <div>
+            <label class="block text-sm">Optional family photos to include in memorial edit up to ten (Optional)</label>
+            <input type="file" accept=".jpg,.jpeg,.png" name="q30_familyPhotos" multiple class="mt-1 w-full" />
+          </div>
+        </section>
+
+        <section class="lv-card space-y-4">
+          <label class="flex items-start gap-2">
+            <input type="checkbox" id="q31_consent" required>
+            <span>I approve the disclosures above and I consent to creation of a labeled AI avatar for private family use</span>
+          </label>
+        </section>
+
+        <div class="mt-6 flex gap-3">
+          <button type="submit" class="px-5 py-3 rounded bg-aa-600 hover:bg-pink-700 font-medium">Submit</button>
+          <a href="/legacy-avatar/" class="px-5 py-3 rounded border border-white/20 hover:border-white/40">Back</a>
+        </div>
+      </form>
+
+      <p id="status" class="mt-4 text-sm text-white/70" role="status" aria-live="polite"></p>
+    </main>
+
+    <script>
+      (function(){
+        var form = document.getElementById('intake');
+        var status = document.getElementById('status');
+        var rights = document.getElementById('rightsHolder');
+        var estate = document.getElementById('estateContact');
+        var post = form.querySelector('[name="q15_postMortem"]');
+        function toggleGroups(){
+          var v = post.value;
+          rights.classList.toggle('hidden', v !== 'continue');
+          estate.classList.toggle('hidden', v !== 'delete');
+        }
+        post.addEventListener('change', toggleGroups); toggleGroups();
+
+        form.addEventListener('submit', async function(e){
+          e.preventDefault();
+          status.textContent = 'Submitting…';
+          const fd = new FormData(form);
+          // Build JSON excluding files for webhook; include file names/placeholders
+          const payload = { hidden: { client_id: '', source: '', campaign: '' } };
+          fd.forEach((v,k)=>{
+            if(v instanceof File){ return; }
+            if(payload[k]){
+              if(Array.isArray(payload[k])) payload[k].push(v); else payload[k] = [payload[k], v];
+            } else {
+              payload[k] = v;
+            }
+          });
+          try {
+            // Use environment-aware URLs
+            const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const apiUrl = isDev ? 'http://localhost:5194/api/intake' : '/api/intake';
+            const redirectUrl = isDev ? 'http://localhost:5194/legacy-avatar' : '/legacy-avatar/portal.html';
+            
+            // For production, use mailto fallback since we don't have API server deployed
+            if (!isDev) {
+              // Create email body with form data
+              const emailBody = Object.entries(payload)
+                .map(([key, value]) => `${key}: ${value}`)
+                .join('\n');
+              
+              const subject = 'Legacy Avatar Intake Submission';
+              const mailto = `mailto:hello@altaredalchemie.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+              
+              status.textContent = 'Opening email client...';
+              window.location.href = mailto;
+              
+              setTimeout(() => {
+                status.textContent = 'If email did not open, please email the form details to hello@altaredalchemie.com';
+              }, 2000);
+              return;
+            }
+            
+            const res = await fetch(apiUrl, { 
+              method:'POST', 
+              headers:{ 
+                'Content-Type':'application/json', 
+                'X-AA-INTAKE-SECRET': (window.__ENV && window.__ENV.LEGACY_AVATAR_TYPEFORM_WEBHOOK_SECRET) || 'replace_me' 
+              }, 
+              body: JSON.stringify({
+                email: payload.q4_email || '',
+                fullName: payload.q1_fullName || '',
+                preferredName: payload.q2_preferredName || '',
+                ...payload
+              }) 
+            });
+            if(!res.ok){ 
+              const errorText = await res.text().catch(() => '');
+              throw new Error(`HTTP ${res.status}: ${errorText}`); 
+            }
+            window.location.assign(redirectUrl);
+          } catch(err){
+            console.error('Intake error:', err);
+            status.textContent = 'Error submitting form. Please try again or email hello@altaredalchemie.com';
+          }
+        });
+      })();
+    </script>
+  </body>
+  </html>
+

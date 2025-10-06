@@ -1,0 +1,59 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Client {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  email         String   @unique
+  fullName      String
+  preferredName String
+  status        String   @default("NEW")
+  intakeJson    String   @default("")
+  intakeSubmittedAt DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  stories       Story[]
+  assets        Asset[]
+  consents      Consent[]
+}
+
+model Story {
+  id        String   @id @default(cuid())
+  clientId  String
+  s1        String
+  s2        String
+  s3        String
+  createdAt DateTime @default(now())
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+}
+
+model Asset {
+  id        String   @id @default(cuid())
+  clientId  String
+  kind      String
+  label     String
+  url       String
+  status    String   @default("PENDING")
+  tag       String   @default("")
+  jobId     String   @default("")
+  createdAt DateTime @default(now())
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+}
+
+model Consent {
+  id           String   @id @default(cuid())
+  clientId     String   @unique
+  consentGiven Boolean  @default(false)
+  signedName   String?
+  signedAt     DateTime?
+  date         DateTime?
+  videoUrl     String?
+  createdAt    DateTime @default(now())
+  client       Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+}

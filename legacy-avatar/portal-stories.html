@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Core Stories</title>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/env.js"></script>
+  </head>
+  <body class="bg-neutral-950 text-white antialiased">
+    <main class="mx-auto max-w-3xl px-6 py-10">
+      <h1 class="text-3xl font-extrabold">Core Stories</h1>
+      <p class="mt-2 text-white/80">Paste three drafts. Short works fine.</p>
+      <form id="stories" class="mt-6 space-y-4">
+        <div><label class="block text-sm">Story one</label><textarea name="s1" class="mt-1 w-full h-28 rounded bg-white/[0.03] border border-white/10 px-3 py-2" required></textarea></div>
+        <div><label class="block text-sm">Story two</label><textarea name="s2" class="mt-1 w-full h-28 rounded bg-white/[0.03] border border-white/10 px-3 py-2" required></textarea></div>
+        <div><label class="block text-sm">Story three</label><textarea name="s3" class="mt-1 w-full h-28 rounded bg-white/[0.03] border border-white/10 px-3 py-2" required></textarea></div>
+        <button class="px-5 py-3 rounded bg-aa-600 hover:bg-pink-700 font-medium">Save</button>
+      </form>
+      <p id="status" class="mt-3 text-sm text-white/70" role="status" aria-live="polite"></p>
+      <p class="mt-6"><a class="underline" href="/legacy-avatar/portal.html">Back to Portal</a></p>
+    </main>
+    <script>
+      (function(){
+        const form=document.getElementById('stories');
+        const status=document.getElementById('status');
+        form.addEventListener('submit', async (e)=>{
+          e.preventDefault(); status.textContent='Saving…';
+          const data = Object.fromEntries(new FormData(form).entries());
+          try{ const res = await fetch('http://localhost:5179/api/stories',{ method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)}); if(!res.ok) throw new Error(); status.textContent='Saved. Thank you.'; form.reset(); }catch(err){ status.textContent='Error. Please try again.'; }
+        });
+      })();
+    </script>
+  </body>
+  </html>
+

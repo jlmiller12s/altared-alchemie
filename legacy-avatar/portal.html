@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Client Portal</title>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/env.js"></script>
+  </head>
+  <body class="bg-neutral-950 text-white antialiased">
+    <main class="mx-auto max-w-3xl px-6 py-10">
+      <h1 class="text-3xl font-extrabold">Client Portal</h1>
+      <p id="welcome" class="mt-2 text-white/80"></p>
+      <ul class="mt-6 list-disc pl-6">
+        <li><a class="underline" href="/legacy-avatar/portal-stories.html">Core Stories</a></li>
+      </ul>
+    </main>
+    <script>
+      (async function(){
+        try{ const who = await fetch('http://localhost:5179/api/whoami').then(r=>r.json()); document.getElementById('welcome').textContent = (who && who.user) ? ('Signed in as ' + who.user.email) : 'Sign in needed'; }catch(e){ document.getElementById('welcome').textContent='Sign in needed'; }
+      })();
+    </script>
+  </body>
+  </html>
+

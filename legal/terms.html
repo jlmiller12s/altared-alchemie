@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Terms of Service — Altared Alchemie</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script>
+      window.tailwind = {};
+      tailwind.config = { theme: { extend: { colors: { aa: {500:'#39FF39',600:'#15FF15',700:'#10D210'}, charcoal:'#0A2D0A', ink:'#111111', bone:'#F7F3EF', grayui:'#6B7280' } } } };
+    </script>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Altared Alchemie">
+    <meta property="og:title" content="Terms of Service — Altared Alchemie">
+    <meta property="og:description" content="Terms governing use of our site and services.">
+    <meta property="og:image" content="https://dummyimage.com/1200x630/0B0B0B/E11D48&text=Altared%20Alchemie">
+    <meta property="og:url" content="https://altaredalchemie.example/legal/terms">
+
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Organization","name":"Altared Alchemie","url":"https://altaredalchemie.example","logo":"https://altaredalchemie.example/logo.png","sameAs":["https://www.linkedin.com/company/altaredalchemie"]}
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  </head>
+  <body class="bg-neutral-950 text-white antialiased">
+    <header class="sticky top-0 z-50 backdrop-blur border-b border-white/10">
+      <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/index.html" class="flex items-center gap-2" aria-label="Home"><img src="/logo.png" alt="Altared Alchemie" class="h-10 w-auto md:h-10"></a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
+          <a class="hover:text-white" href="/services.html">Services</a>
+          <a class="hover:text-white" href="/case-studies.html">Case Studies</a>
+          <a class="hover:text-white" href="/legacy-avatar.html">Legacy Avatar</a>
+          <a class="hover:text-white" href="/about.html">About</a>
+          <a class="hover:text-white" href="/resources.html">Resources</a>
+          <a class="hover:text-white" href="/contact.html">Contact</a>
+        </nav>
+        <a href="/contact.html#schedule" class="hidden md:inline-block px-3 py-2 text-sm rounded border border-white/20 hover:border-white/40">Book a Strategy Call</a>
+        <button id="mobileMenuBtn" class="md:hidden px-3 py-2 text-sm rounded border border-white/20" aria-controls="mobileMenu" aria-expanded="false">Menu</button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-neutral-950">
+        <nav class="px-6 py-3 text-sm">
+          <a class="block py-2 text-white/80 hover:text-white" href="/services.html">Services</a>
+          <a class="block py-2 text-white/80 hover:text-white" href="/case-studies.html">Case Studies</a>
+          <a class="block py-2 text-white/80 hover:text-white" href="/legacy-avatar">Legacy Avatar</a>
+          <a class="block py-2 text-white/80 hover:text-white" href="/about.html">About</a>
+          <a class="block py-2 text-white/80 hover:text-white" href="/resources.html">Resources</a>
+          <a class="block py-2 text-white/80 hover:text-white" href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 pt-12 pb-16 prose prose-invert prose-p:leading-relaxed prose-headings:tracking-tight">
+      <h1>Terms of Service</h1>
+      <p>Welcome to Altared Alchemie. By using our site and services, you agree to these terms.</p>
+      <h2>Use of services</h2>
+      <p>You agree to provide accurate information and to use our services in compliance with applicable laws.</p>
+      <h2>Payments</h2>
+      <p>Project fees, retainers, and subscriptions are invoiced as agreed. Certain pilots may be prepaid.</p>
+      <h2>Intellectual property</h2>
+      <p>We retain rights to our methods and templates. You retain rights to your data and deliverables as specified in your agreement.</p>
+      <h2>Confidentiality</h2>
+      <p>Each party will keep confidential information private and use it only for the project.</p>
+      <h2>Disclaimers</h2>
+      <p>Services are provided "as is" without warranties beyond those explicitly stated in writing.</p>
+      <h2>Limitation of liability</h2>
+      <p>To the maximum extent permitted by law, our liability is limited to amounts paid in the preceding 3 months.</p>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:hello@altaredalchemie.com">hello@altaredalchemie.com</a></p>
+      <p>Effective date: 2025-09-15</p>
+    </main>
+
+    <footer class="border-t border-white/10">
+      <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-white/70">© <span id="year"></span> Altared Alchemie — <a class="underline" href="/legal/privacy.html">Privacy</a> · <a class="underline" href="/legal/terms.html">Terms</a></div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent=new Date().getFullYear();
+      (function(){
+        const btn=document.getElementById('mobileMenuBtn');
+        const panel=document.getElementById('mobileMenu');
+        if(btn&&panel){btn.addEventListener('click',()=>{const open=!panel.classList.contains('hidden');panel.classList.toggle('hidden',open);btn.setAttribute('aria-expanded',String(!open));});}
+      })();
+    </script>
+  </body>
+  </html>

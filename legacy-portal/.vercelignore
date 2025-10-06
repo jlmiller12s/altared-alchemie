@@ -1,0 +1,24 @@
+# Local development files
+.env.local
+.env
+*.log
+
+# Database files (will use production database)
+prisma/dev.db
+prisma/migrations/
+
+# Build artifacts
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Uploads (will be handled differently in production)
+public/uploads/
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

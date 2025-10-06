@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Avatar - Altared Alchemie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: white;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .avatar-container {
+            width: 400px;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+            position: relative;
+        }
+        #heygen-preview-slot {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="avatar-container">
+        <div id="heygen-preview-slot"></div>
+    </div>
+
+    <script>
+        !function(window){
+            const host="https://labs.heygen.com",
+            url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiI1NWYzMjVkMzk1OTA0NjEzYTg5NjMxMmQ5%0D%0ANjU0YzNkMCIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3Yz%0D%0ALzU1ZjMyNWQzOTU5MDQ2MTNhODk2MzEyZDk2NTRjM2QwL2Z1bGwvMi4yL3ByZXZpZXdfdGFyZ2V0%0D%0ALndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6ImRl%0D%0AbW8tMSIsInVzZXJuYW1lIjoiZTJiZDg5YjYxNGJkNDljZGJiY2QyMWJiOGY0MGNmZmIifQ%3D%3D&inIFrame=1",
+            clientWidth=document.body.clientWidth,
+            wrapDiv=document.createElement("div");
+            wrapDiv.id="heygen-streaming-embed";
+            const container=document.createElement("div");
+            container.id="heygen-streaming-container";
+            const stylesheet=document.createElement("style");
+            stylesheet.innerHTML=`
+              #heygen-streaming-embed {
+                z-index: 9999;
+                position: fixed;
+                left: 40px;
+                bottom: 40px;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                border: 2px solid #fff;
+                box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);
+                transition: all linear 0.1s;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+              }
+              #heygen-streaming-embed.show {
+                opacity: 1;
+                visibility: visible;
+              }
+              #heygen-streaming-embed.expand {
+                ${clientWidth<540?"height: 266px; width: 96%; left: 50%; transform: translateX(-50%);":"height: 366px; width: calc(366px * 16 / 9);"}
+                border: 0;
+                border-radius: 8px;
+              }
+              #heygen-streaming-container {
+                width: 100%;
+                height: 100%;
+              }
+              #heygen-streaming-container iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+              }
+            `;
+            const iframe=document.createElement("iframe");
+            iframe.allowFullscreen=false;
+            iframe.title="Streaming Embed";
+            iframe.role="dialog";
+            iframe.allow="microphone";
+            iframe.src=url;
+            let visible=false,initial=false;
+            window.addEventListener("message",(e=>{
+              if(e.origin===host&&e.data&&e.data.type&&"streaming-embed"===e.data.type&&("init"===e.data.action?(initial=true,wrapDiv.classList.toggle("show",initial)):"show"===e.data.action?(visible=true,wrapDiv.classList.toggle("expand",visible)):"hide"===e.data.action&&(visible=false,wrapDiv.classList.toggle("expand",visible)))
+            }));
+            container.appendChild(iframe);
+            wrapDiv.appendChild(stylesheet);
+            wrapDiv.appendChild(container);
+            document.body.appendChild(wrapDiv);
+
+            // Move the avatar into the preview slot
+            setTimeout(()=>{
+              const wrap=document.getElementById("heygen-streaming-embed");
+              const target=document.querySelector("#heygen-preview-slot");
+              if(wrap&&target){
+                target.appendChild(wrap);
+                wrap.classList.add("show","expand");
+                Object.assign(wrap.style,{
+                  position:"absolute",
+                  inset:"0px",
+                  left:"0px",
+                  bottom:"0px",
+                  width:"100%",
+                  height:"100%",
+                  borderRadius:"12px",
+                  border:"0",
+                  boxShadow:"none",
+                  transform:"none"
+                });
+              }
+            },100);
+        }(globalThis);
+    </script>
+</body>
+</html>

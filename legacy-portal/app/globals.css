@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --aa-brand:#e82d05;
+}
+
+html,body{ @apply bg-black text-white; }
+
+/* simple layout helpers matching site container */
+.aa-container{ @apply mx-auto max-w-6xl px-6; }
+
+/* dark cards similar to homepage panels */
+.aa-card{ @apply rounded-xl border border-neutral-800 bg-neutral-900/70 p-5 shadow-sm; }
+
+.aa-btn{ @apply inline-flex items-center justify-center rounded-lg bg-white text-black px-4 py-2 font-medium hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-[var(--aa-brand)]; }
+
+.aa-link{ @apply hover:underline hover:text-neutral-300; }
+
+/* glow hover borrowed from site */
+.glow-hover{ transition: box-shadow .25s ease, transform .2s ease }
+.glow-hover:hover{ box-shadow: 0 0 0 2px rgba(232,45,5,.35), 0 0 24px rgba(232,45,5,.5), 0 0 48px rgba(232,45,5,.35); transform: translateY(-1px) }
+
+/* simple marquee scroller for gallery */
+.aa-marquee{ animation: aa-marquee 40s linear infinite; will-change: transform; }
+.aa-marquee:hover{ animation-play-state: paused; }
+@keyframes aa-marquee{ from{ transform: translateX(0) } to{ transform: translateX(-50%) } }
+

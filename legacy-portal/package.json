@@ -1,0 +1,33 @@
+{
+  "name": "legacy-portal",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 5187",
+    "build": "prisma generate && next build",
+    "start": "next start -p 5181",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^5.6.2",
+    "@prisma/client": "^5.22.0",
+    "next": "^14.2.7",
+    "pg": "^8.11.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.5.2",
+    "@types/pg": "^8.10.9",
+    "@types/react": "19.1.13",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "prisma": "^5.22.0",
+    "tailwindcss": "^3.4.12",
+    "typescript": "^5.6.2"
+  }
+}

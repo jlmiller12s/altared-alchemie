@@ -1,0 +1,7 @@
+.lv-card{padding:1.5rem;border-radius:0.75rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.1)}
+.lv-card h2,.lv-card h3{font-weight:600}
+/* Improve visibility of selects/options on dark background (scoped to intake only) */
+#intake select{color:#000;background:#fff}
+#intake select:focus{outline:2px solid rgba(225,29,72,.7)}
+#intake option{color:#000;background:#fff}
+
