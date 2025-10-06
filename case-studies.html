@@ -38,6 +38,62 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="/altared-icons-component.js"></script>
+    <script>
+      // Icon component for vanilla JS
+      window.AltaredIcons = {
+        Lightning: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+        Money: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M12 1v22M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="3" stroke="#E11D48" stroke-width="1.5"/>
+        </svg>`,
+        Target: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="1" fill="#E11D48"/>
+        </svg>`,
+        Mobile: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 18h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="12" cy="6" r="1" fill="#E11D48"/>
+        </svg>`,
+        Search: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+          <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="11" r="2" fill="#E11D48"/>
+        </svg>`,
+        Tools: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="1" fill="#E11D48"/>
+        </svg>`,
+        Graduation: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="1" fill="#E11D48"/>
+        </svg>`,
+        Shopping: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="19" r="1" fill="#E11D48"/>
+          <circle cx="20" cy="19" r="1" fill="#E11D48"/>
+        </svg>`,
+        Church: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 9v4M9 15h.01M15 9v4M15 15h.01" stroke="#E11D48" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>`,
+        Fashion: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46A2 2 0 002 5.4V18a2 2 0 002 2h16a2 2 0 002-2V5.4a2 2 0 00-1.62-1.94z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 9v6M8 12h8" stroke="#E11D48" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>`,
+        Rocket: () => `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 15l-3-3a22 22 0 012-2.5l5.5-5.5c.5-.5 1-.5 1.5 0l.5.5c.5.5.5 1 0 1.5L15 12a22 22 0 00-2.5 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 12H4l-1 1c0 1.5.5 3 2 4.5" stroke="#E11D48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`
+      };
+    </script>
   </head>
   <body class="bg-neutral-950 text-white antialiased">
     <script src="/env.js"></script>
@@ -118,19 +174,19 @@
                 <h3 class="text-lg font-semibold mb-4 text-aa-500">The Results</h3>
                 <div class="space-y-4">
                   <div class="flex items-center gap-3">
-                    <span class="text-2xl">⚡</span>
+                    <div class="text-aa-500" data-icon="lightning"></div>
                     <span class="text-white/80">Launched in days instead of months</span>
                   </div>
                   <div class="flex items-center gap-3">
-                    <span class="text-2xl">💰</span>
+                    <div class="text-aa-500" data-icon="money"></div>
                     <span class="text-white/80">Saved $8,000+ in traditional agency fees</span>
                   </div>
                   <div class="flex items-center gap-3">
-                    <span class="text-2xl">🎯</span>
+                    <div class="text-aa-500" data-icon="target"></div>
                     <span class="text-white/80">Professional, conversion-optimized design</span>
                   </div>
                   <div class="flex items-center gap-3">
-                    <span class="text-2xl">📱</span>
+                    <div class="text-aa-500" data-icon="mobile"></div>
                     <span class="text-white/80">Fully responsive and fast-loading site</span>
                   </div>
                 </div>
@@ -201,26 +257,26 @@
               <div class="bg-white/[0.03] rounded-lg p-4 border border-white/10">
                 <div class="text-white/60 text-sm mb-2">Before</div>
                 <ul class="text-white/70 text-sm space-y-1">
-                  <li>LCP 3.6s</li>
-                  <li>1–2 drops/month</li>
-                  <li>1.2% conversion</li>
-                </ul>
-              </div>
+                <li>LCP 3.6s</li>
+                <li>1–2 drops/month</li>
+                <li>1.2% conversion</li>
+              </ul>
+            </div>
               <div class="bg-white/[0.03] rounded-lg p-4 border border-white/10">
                 <div class="text-white/60 text-sm mb-2">After</div>
                 <ul class="text-white/70 text-sm space-y-1">
-                  <li>LCP 1.9s</li>
-                  <li>4–6 drops/month</li>
-                  <li>2.1% conversion</li>
-                </ul>
-              </div>
+                <li>LCP 1.9s</li>
+                <li>4–6 drops/month</li>
+                <li>2.1% conversion</li>
+              </ul>
             </div>
+          </div>
             
             <div class="bg-aa-500/10 rounded-lg p-4 border border-aa-500/20">
               <div class="text-aa-500 font-semibold text-sm mb-2">Key Results</div>
               <div class="text-white/80 text-sm">+75% content velocity, +0.9 pp CVR, +22% revenue/visitor, −45% time-to-publish</div>
             </div>
-          </article>
+        </article>
 
           <!-- Church Media Team Case Study - Expanded -->
           <article class="bg-white/[0.02] rounded-2xl border border-white/10 p-8 hover:border-white/20 transition-colors">
@@ -246,26 +302,26 @@
               <div class="bg-white/[0.03] rounded-lg p-4 border border-white/10">
                 <div class="text-white/60 text-sm mb-2">Before</div>
                 <ul class="text-white/70 text-sm space-y-1">
-                  <li>6 hrs/sermon edit</li>
-                  <li>1 video + 2 clips/week</li>
-                  <li>Volunteer burnout</li>
-                </ul>
-              </div>
+                <li>6 hrs/sermon edit</li>
+                <li>1 video + 2 clips/week</li>
+                <li>Volunteer burnout</li>
+              </ul>
+            </div>
               <div class="bg-white/[0.03] rounded-lg p-4 border border-white/10">
                 <div class="text-white/60 text-sm mb-2">After</div>
                 <ul class="text-white/70 text-sm space-y-1">
-                  <li>2 hrs/sermon</li>
-                  <li>1 video + 8 clips/week</li>
-                  <li>Volunteer retention up</li>
-                </ul>
-              </div>
+                <li>2 hrs/sermon</li>
+                <li>1 video + 8 clips/week</li>
+                <li>Volunteer retention up</li>
+              </ul>
             </div>
+          </div>
             
             <div class="bg-aa-500/10 rounded-lg p-4 border border-aa-500/20">
               <div class="text-aa-500 font-semibold text-sm mb-2">Key Results</div>
               <div class="text-white/80 text-sm">−67% edit time, +3x content volume, +40% engagement rate</div>
             </div>
-          </article>
+        </article>
         </div>
       </section>
 
@@ -276,7 +332,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 text-center hover:border-white/20 transition-colors">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <span class="text-aa-500 text-xl">🔍</span>
+              <div class="text-aa-500" data-icon="search"></div>
             </div>
             <h3 class="font-semibold mb-3">1. Audit & Discovery</h3>
             <p class="text-white/70 text-sm">We start by understanding your current workflows, pain points, and goals. This typically takes 3–5 days and results in a clear roadmap.</p>
@@ -284,7 +340,7 @@
           
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 text-center hover:border-white/20 transition-colors">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <span class="text-aa-500 text-xl">⚡</span>
+              <div class="text-aa-500" data-icon="lightning"></div>
             </div>
             <h3 class="font-semibold mb-3">2. Rapid Prototyping</h3>
             <p class="text-white/70 text-sm">We build working prototypes quickly, often within the first week. This lets you see and test solutions early, not months later.</p>
@@ -292,7 +348,7 @@
           
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 text-center hover:border-white/20 transition-colors">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <span class="text-aa-500 text-xl">🔧</span>
+              <div class="text-aa-500" data-icon="tools"></div>
             </div>
             <h3 class="font-semibold mb-3">3. Implementation & Integration</h3>
             <p class="text-white/70 text-sm">We handle all technical implementation and ensure seamless integration with your existing tools and platforms.</p>
@@ -300,7 +356,7 @@
           
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 text-center hover:border-white/20 transition-colors">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <span class="text-aa-500 text-xl">🎓</span>
+              <div class="text-aa-500" data-icon="graduation"></div>
             </div>
             <h3 class="font-semibold mb-3">4. Training & Handoff</h3>
             <p class="text-white/70 text-sm">Every project includes comprehensive training and documentation so your team can confidently maintain and optimize the solution.</p>
@@ -315,7 +371,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 hover:border-aa-500/30 transition-colors group">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-aa-500/30 transition-colors">
-              <span class="text-aa-500 text-xl">🛒</span>
+              <div class="text-aa-500" data-icon="shopping"></div>
             </div>
             <h3 class="font-semibold mb-3">E-Commerce & Retail</h3>
             <p class="text-white/70 text-sm mb-4">From product launches to ongoing optimization, we help online stores move faster and convert better.</p>
@@ -329,7 +385,7 @@
           
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 hover:border-aa-500/30 transition-colors group">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-aa-500/30 transition-colors">
-              <span class="text-aa-500 text-xl">⛪</span>
+              <div class="text-aa-500" data-icon="church"></div>
             </div>
             <h3 class="font-semibold mb-3">Faith Organizations</h3>
             <p class="text-white/70 text-sm mb-4">We help churches and ministries reach more people with modern content tools and automation.</p>
@@ -343,7 +399,7 @@
           
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 hover:border-aa-500/30 transition-colors group">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-aa-500/30 transition-colors">
-              <span class="text-aa-500 text-xl">👗</span>
+              <div class="text-aa-500" data-icon="fashion"></div>
             </div>
             <h3 class="font-semibold mb-3">Fashion & DTC Brands</h3>
             <p class="text-white/70 text-sm mb-4">We accelerate product launches and optimize digital experiences for fashion and lifestyle brands.</p>
@@ -357,7 +413,7 @@
           
           <div class="bg-white/[0.02] rounded-xl border border-white/10 p-6 hover:border-aa-500/30 transition-colors group">
             <div class="w-12 h-12 bg-aa-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-aa-500/30 transition-colors">
-              <span class="text-aa-500 text-xl">🚀</span>
+              <div class="text-aa-500" data-icon="rocket"></div>
             </div>
             <h3 class="font-semibold mb-3">Coming Soon</h3>
             <p class="text-white/70 text-sm mb-4">We're expanding our portfolio. Your project could be next.</p>
@@ -466,39 +522,141 @@
       if (window.gsap) {
         gsap.registerPlugin(ScrollTrigger);
         
-        // Hero section animation
-        gsap.from('h1', { y: 24, opacity: 0, duration: 0.7, ease: 'power2.out' });
-        gsap.from('main section:first-of-type p', { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 });
-        
-        // Featured case study animation
-        gsap.from('.bg-gradient-to-br', { opacity: 0, y: 30, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: '.bg-gradient-to-br', start: 'top 85%' } });
-        
-        // Case study cards animation
-        gsap.utils.toArray('article').forEach((card) => {
-          gsap.from(card, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: card, start: 'top 85%' } });
-        });
-        
-        // Process cards animation
-        gsap.utils.toArray('.grid.md\\:grid-cols-2.lg\\:grid-cols-4 > div').forEach((card, index) => {
-          gsap.from(card, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', delay: index * 0.1, scrollTrigger: { trigger: card, start: 'top 85%' } });
-        });
-        
-        // Industry cards animation
-        gsap.utils.toArray('.grid.md\\:grid-cols-2.lg\\:grid-cols-4 > div').forEach((card, index) => {
-          gsap.from(card, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', delay: index * 0.1, scrollTrigger: { trigger: card, start: 'top 85%' } });
-        });
-        
-        // Metrics cards animation
-        gsap.utils.toArray('.grid.md\\:grid-cols-2.lg\\:grid-cols-5 > div').forEach((card, index) => {
-          gsap.from(card, { opacity: 0, scale: 0.9, duration: 0.6, ease: 'power2.out', delay: index * 0.1, scrollTrigger: { trigger: card, start: 'top 85%' } });
-        });
-        
-        // CTA section animation
-        gsap.from('.bg-gradient-to-br.from-white\\/5', { opacity: 0, y: 30, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: '.bg-gradient-to-br.from-white\\/5', start: 'top 85%' } });
-        
-        // Testimonial cards animation
-        gsap.utils.toArray('.grid.md\\:grid-cols-2.gap-8 > div').forEach((card, index) => {
-          gsap.from(card, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', delay: index * 0.2, scrollTrigger: { trigger: card, start: 'top 85%' } });
+        // Wait for DOM to be fully loaded
+        gsap.delayedCall(0.1, () => {
+          // Hero section animation
+          gsap.from('main h1', { y: 24, opacity: 0, duration: 0.7, ease: 'power2.out' });
+          gsap.from('main section:first-of-type p', { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 });
+          
+          // Featured case study animation - more specific selector
+          const featuredCaseStudy = document.querySelector('section:nth-of-type(2) .bg-gradient-to-br');
+          if (featuredCaseStudy) {
+            gsap.from(featuredCaseStudy, { 
+              opacity: 0, 
+              y: 30, 
+              duration: 0.8, 
+              ease: 'power2.out', 
+              scrollTrigger: { 
+                trigger: featuredCaseStudy, 
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+              } 
+            });
+          }
+          
+          // Case study cards animation - more specific
+          gsap.utils.toArray('section:nth-of-type(3) article').forEach((card) => {
+            gsap.from(card, { 
+              opacity: 0, 
+              y: 20, 
+              duration: 0.6, 
+              ease: 'power2.out', 
+              scrollTrigger: { 
+                trigger: card, 
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+              } 
+            });
+          });
+          
+          // Process cards animation - specific to process section
+          const processSection = document.querySelector('section:nth-of-type(4)');
+          if (processSection) {
+            gsap.utils.toArray(processSection.querySelectorAll('.grid > div')).forEach((card, index) => {
+              gsap.from(card, { 
+                opacity: 0, 
+                y: 20, 
+                duration: 0.6, 
+                ease: 'power2.out', 
+                delay: index * 0.1, 
+                scrollTrigger: { 
+                  trigger: card, 
+                  start: 'top 80%',
+                  end: 'bottom 20%',
+                  toggleActions: 'play none none reverse'
+                } 
+              });
+            });
+          }
+          
+          // Industry cards animation - specific to industry section
+          const industrySection = document.querySelector('section:nth-of-type(5)');
+          if (industrySection) {
+            gsap.utils.toArray(industrySection.querySelectorAll('.grid > div')).forEach((card, index) => {
+              gsap.from(card, { 
+                opacity: 0, 
+                y: 20, 
+                duration: 0.6, 
+                ease: 'power2.out', 
+                delay: index * 0.1, 
+                scrollTrigger: { 
+                  trigger: card, 
+                  start: 'top 80%',
+                  end: 'bottom 20%',
+                  toggleActions: 'play none none reverse'
+                } 
+              });
+            });
+          }
+          
+          // Metrics cards animation - specific to metrics section
+          const metricsSection = document.querySelector('section:nth-of-type(6)');
+          if (metricsSection) {
+            gsap.utils.toArray(metricsSection.querySelectorAll('.grid > div')).forEach((card, index) => {
+              gsap.from(card, { 
+                opacity: 0, 
+                scale: 0.9, 
+                duration: 0.6, 
+                ease: 'power2.out', 
+                delay: index * 0.1, 
+                scrollTrigger: { 
+                  trigger: card, 
+                  start: 'top 80%',
+                  end: 'bottom 20%',
+                  toggleActions: 'play none none reverse'
+                } 
+              });
+            });
+          }
+          
+          // CTA section animation - more specific selector
+          const ctaSection = document.querySelector('section:nth-of-type(7) .bg-gradient-to-br');
+          if (ctaSection) {
+            gsap.from(ctaSection, { 
+              opacity: 0, 
+              y: 30, 
+              duration: 0.8, 
+              ease: 'power2.out', 
+              scrollTrigger: { 
+                trigger: ctaSection, 
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+              } 
+            });
+          }
+          
+          // Testimonial cards animation - specific to testimonials section
+          const testimonialsSection = document.querySelector('section:nth-of-type(8)');
+          if (testimonialsSection) {
+            gsap.utils.toArray(testimonialsSection.querySelectorAll('.grid > div')).forEach((card, index) => {
+              gsap.from(card, { 
+                opacity: 0, 
+                y: 20, 
+                duration: 0.6, 
+                ease: 'power2.out', 
+                delay: index * 0.2, 
+                scrollTrigger: { 
+                  trigger: card, 
+                  start: 'top 80%',
+                  end: 'bottom 20%',
+                  toggleActions: 'play none none reverse'
+                } 
+              });
+            });
+          }
         });
       }
       
@@ -508,6 +666,24 @@
         const panel=document.getElementById('mobileMenu');
         if(btn&&panel){btn.addEventListener('click',()=>{const open=!panel.classList.contains('hidden');panel.classList.toggle('hidden',open);btn.setAttribute('aria-expanded',String(!open));});}
       })();
+      
+      // Replace data-icon attributes with actual SVG icons
+      function replaceIcons() {
+        const iconElements = document.querySelectorAll('[data-icon]');
+        iconElements.forEach(element => {
+          const iconType = element.getAttribute('data-icon');
+          if (window.AltaredIcons && window.AltaredIcons[iconType.charAt(0).toUpperCase() + iconType.slice(1)]) {
+            element.innerHTML = window.AltaredIcons[iconType.charAt(0).toUpperCase() + iconType.slice(1)]();
+          }
+        });
+      }
+      
+      // Run icon replacement when DOM is loaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', replaceIcons);
+      } else {
+        replaceIcons();
+      }
     </script>
   </body>
   </html>
