@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background transparent -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer light triangle -->
+    <path d="M256 24 L488 456 H24 Z" stroke="#E5E7EB" stroke-width="14"/>
+    <!-- Mid gray triangle -->
+    <path d="M256 84 L438 420 H74 Z" stroke="#9CA3AF" stroke-width="32"/>
+    <!-- Inner light fill for depth -->
+    <path d="M256 118 L410 400 H102 Z" fill="#F3F4F6" opacity="0.5"/>
+    <!-- Inner red A (filled) -->
+    <path d="M256 316 L310 430 H202 Z" fill="#E10600"/>
+    <!-- Red A uprights (thicker for legibility) -->
+    <path d="M256 316 L310 430 M256 316 L202 430" stroke="#E10600" stroke-width="24"/>
+    <!-- Crossbars (white) -->
+    <path d="M184 374 H328" stroke="#FFFFFF" stroke-width="16"/>
+    <path d="M216 410 H296" stroke="#FFFFFF" stroke-width="12"/>
+  </g>
+</svg>
+

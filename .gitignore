@@ -1,0 +1,34 @@
+.vercel
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node / Next builds
+node_modules/
+legacy-portal/node_modules/
+server/node_modules/
+legacy-portal/.next/
+legacy-portal/.turbo/
+legacy-portal/.swc/
+legacy-portal/.cache/
+
+# Env / local only
+.env
+*.env.local
+legacy-portal/.env
+legacy-portal/.env.local
+server/.env
+
+# Databases / generated
+*.db
+legacy-portal/prisma/dev.db
+
+# Misc
+.vercelignore

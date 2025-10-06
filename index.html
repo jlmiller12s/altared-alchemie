@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Altared Alchemie — Faith-driven AI consultancy for businesses, churches, and creators</title>
+    <meta name="description" content="Faith-driven AI consultancy for businesses, churches, and creators. From custom websites to AI avatars—we build, automate, and train teams with 10+ years of expertise.">
+    <meta name="theme-color" content="#0B0B0B">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Altared Alchemie">
+    <meta property="og:title" content="Altared Alchemie — Faith-driven AI consultancy">
+    <meta property="og:description" content="From custom websites to AI avatars—we build, automate, and train teams with 10+ years of expertise.">
+    <meta property="og:image" content="https://dummyimage.com/1200x630/0B0B0B/E11D48&text=Altared%20Alchemie">
+    <meta property="og:url" content="https://altaredalchemie.example">
+
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script>
+      window.tailwind = {};
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aa: { 500: '#39FF39', 600: '#15FF15', 700: '#10D210' },
+              charcoal: '#0A2D0A',
+              ink: '#111111',
+              bone: '#F7F3EF',
+              grayui: '#6B7280'
+            },
+            boxShadow: { card: '0 1px 1px rgba(0,0,0,0.04), 0 10px 30px rgba(0,0,0,0.35)' }
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root { color-scheme: dark; }
+      html:focus-within { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
+      .motion-hover{transition: transform .2s ease, opacity .2s ease}
+      .motion-hover:hover{transform: translateY(-2px)}
+      .glow-hover{transition: box-shadow .25s ease, transform .2s ease}
+      .glow-hover:hover{box-shadow: 0 0 0 2px rgba(232,45,5,.35), 0 0 24px rgba(232,45,5,.5), 0 0 48px rgba(232,45,5,.35); transform: translateY(-1px)}
+      
+      /* Fix dropdown visibility */
+      select option {
+        background-color: #1f2937 !important;
+        color: white !important;
+      }
+      select:focus option {
+        background-color: #374151 !important;
+        color: white !important;
+      }
+    </style>
+
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Altared Alchemie",
+        "url": "https://altaredalchemie.example",
+        "logo": "https://altaredalchemie.example/logo.png",
+        "sameAs": ["https://www.linkedin.com/company/altaredalchemie"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "AI Strategy and Automation",
+        "provider": { "@type": "Organization", "name": "Altared Alchemie" },
+        "areaServed": "Global",
+        "offers": { "@type": "AggregateOffer", "lowPrice": "2500", "highPrice": "90000", "priceCurrency": "USD" }
+      }
+    </script>
+  </head>
+  <body class="bg-charcoal text-white antialiased">
+    <script src="/env.js"></script>
+    <script defer src="/nav-flag.js"></script>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-aa-600 text-white px-3 py-2 rounded">Skip to content</a>
+
+    <header class="sticky top-0 z-50 backdrop-blur border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/index.html" class="flex items-center gap-2" aria-label="Home">
+          <img src="/logo.png" alt="Altared Alchemie" class="h-10 w-auto md:h-10">
+        </a>
+        <nav aria-label="Main" class="hidden md:flex items-center gap-6 text-sm text-white/80">
+          <a class="hover:text-white glow-hover" href="/services.html">Services</a>
+          <a class="hover:text-white glow-hover" href="/case-studies.html">Case Studies</a>
+          <a class="hover:text-white glow-hover" href="/legacy-avatar">Legacy Avatar</a>
+          <a class="hover:text-white glow-hover" href="/about.html">About</a>
+          <a class="hover:text-white glow-hover" href="/resources.html">Resources</a>
+          <a class="hover:text-white glow-hover" href="/contact.html">Contact</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="/contact.html#schedule" class="px-3 py-2 text-sm rounded border border-white/20 hover:border-white/40">Book a Strategy Call</a>
+          <a href="#start-pilot" class="px-3 py-2 text-sm rounded bg-aa-600 hover:bg-aa-700">Start a Pilot</a>
+        </div>
+        <button id="mobileMenuBtn" class="md:hidden px-3 py-2 text-sm rounded border border-white/20" aria-controls="mobileMenu" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+    <div id="mobileMenu" class="md:hidden hidden border-b border-white/10 bg-charcoal">
+      <nav class="px-6 py-3 text-sm">
+        <a class="block py-2 text-white/80 hover:text-white" href="/services.html">Services</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/case-studies.html">Case Studies</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/legacy-avatar">Legacy Avatar</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/about.html">About</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/resources.html">Resources</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <main id="main">
+      <section class="relative overflow-hidden min-h-screen flex items-center">
+        <!-- WebGL Canvas Background -->
+        <canvas id="webgl-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        
+        <!-- Content overlay -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-10 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="text-aa-500 font-medium">Faith-driven AI consultancy for businesses, churches, and creators</p>
+            <h1 class="mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">Turn ideas into systems with AI that automates and scales</h1>
+            <p class="mt-4 text-lg text-white/80 max-w-xl">From custom websites to AI avatars we build, automate, and train teams with 10+ years of expertise</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="/case-studies.html" class="inline-flex items-center justify-center px-6 py-3 rounded border border-white/20 hover:border-white/40 glow-hover font-medium">View Case Studies</a>
+              <a href="/contact.html#schedule" class="inline-flex items-center justify-center px-6 py-3 rounded border border-white/20 hover:border-white/40 glow-hover font-medium">Schedule Free 15-Min Consultation</a>
+            </div>
+          </div>
+          <div class="relative">
+            <div id="heroMedia" class="aspect-[4/3] rounded-xl overflow-hidden border border-white/10 shadow-card">
+              <video src="/Red-gold-robot-animation.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline preload="auto" poster="/background.png" aria-label="Altared Alchemie hero animation"></video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="tilt p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors transform-gpu will-change-transform glow-hover">
+              <div class="text-xs text-white/60"><span class="count" data-to="1">00</span></div>
+              <h3 class="mt-2 font-semibold">Time Saved</h3>
+              <p class="mt-2 text-white/70">Reclaim 10–20 hours per week per team member through practical automation</p>
+            </div>
+            <div class="tilt p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors transform-gpu will-change-transform glow-hover">
+              <div class="text-xs text-white/60"><span class="count" data-to="2">00</span></div>
+              <h3 class="mt-2 font-semibold">Cost Savings</h3>
+              <p class="mt-2 text-white/70">Save $5,000–$10,000+ on website and content creation with AI-powered workflows</p>
+            </div>
+            <div class="tilt p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors transform-gpu will-change-transform glow-hover">
+              <div class="text-xs text-white/60"><span class="count" data-to="3">00</span></div>
+              <h3 class="mt-2 font-semibold">Content Velocity</h3>
+              <p class="mt-2 text-white/70">Publish 2–5x more content without sacrificing quality or authenticity</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative border-t border-white/10 overflow-hidden">
+        <!-- Pipeline Canvas Background for this section -->
+        <canvas id="pipeline-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+          <div class="flex items-end justify-between">
+            <h2 class="text-2xl sm:text-3xl font-bold">What We Do</h2>
+            <a href="/services.html" class="text-aa-500 hover:text-aa-600">See all services →</a>
+          </div>
+          <div id="animated-services" class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="/services.html#websites" class="srv-card group p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors transform-gpu will-change-transform glow-hover backdrop-blur-sm">
+              <div class="text-xs text-white/60">01</div>
+              <h3 class="mt-2 font-semibold group-hover:text-white">Custom AI Websites</h3>
+              <p class="mt-2 text-white/70">Lightning-fast development (days, not months) with AI-powered copywriting and design at a fraction of typical costs.</p>
+            </a>
+            <a href="/services.html#chatbots" class="srv-card group p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors transform-gpu will-change-transform glow-hover backdrop-blur-sm">
+              <div class="text-xs text-white/60">02</div>
+              <h3 class="mt-2 font-semibold group-hover:text-white">AI Chatbot Integration</h3>
+              <p class="mt-2 text-white/70">Smart customer support automation with lead capture and seamless integration with your existing tools.</p>
+            </a>
+            <a href="/services.html#avatars" class="srv-card group p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors transform-gpu will-change-transform glow-hover backdrop-blur-sm">
+              <div class="text-xs text-white/60">03</div>
+              <h3 class="mt-2 font-semibold group-hover:text-white">AI Avatar Clones</h3>
+              <p class="mt-2 text-white/70">Personalized AI representatives for your brand with video content creation at scale and consistent messaging.</p>
+            </a>
+            <a href="/services.html#training" class="srv-card group p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors transform-gpu will-change-transform glow-hover backdrop-blur-sm">
+              <div class="text-xs text-white/60">04</div>
+              <h3 class="mt-2 font-semibold group-hover:text-white">AI Training & Consulting</h3>
+              <p class="mt-2 text-white/70">Team workshops and training with strategy guidance and ongoing support for optimization.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who We Serve Section -->
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold">Who We Help</h2>
+            <p class="mt-3 text-white/70 max-w-2xl mx-auto">Empowering diverse organizations with AI solutions tailored to their unique needs</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors glow-hover text-center">
+              <div class="w-12 h-12 mx-auto mb-4 rounded-lg bg-aa-600/20 flex items-center justify-center">
+                <span class="text-aa-500 font-bold text-lg">SMB</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Small to Medium Businesses</h3>
+              <p class="text-white/70">Scale operations without scaling costs. Automate workflows, enhance customer experiences, and compete with enterprise-level capabilities.</p>
+            </div>
+            <div class="p-8 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors glow-hover text-center">
+              <div class="w-12 h-12 mx-auto mb-4 rounded-lg bg-aa-600/20 flex items-center justify-center">
+                <span class="text-aa-500 font-bold text-lg">FAITH</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Churches & Faith Organizations</h3>
+              <p class="text-white/70">Reach more people with modern tools while maintaining authentic connection. From online engagement to administrative automation.</p>
+            </div>
+            <div class="p-8 rounded-xl bg-white/[0.02] border border-white/10 hover:border-aa-600/40 transition-colors glow-hover text-center">
+              <div class="w-12 h-12 mx-auto mb-4 rounded-lg bg-aa-600/20 flex items-center justify-center">
+                <span class="text-aa-500 font-bold text-lg">CREATE</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Content Creators</h3>
+              <p class="text-white/70">Multiply your output without burning out. Create more content, engage with your audience, and maintain consistent quality across all platforms.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us Section -->
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold">Why Choose Us</h2>
+            <p class="mt-3 text-white/70 max-w-2xl mx-auto">Experience, integrity, and results-driven execution</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-xl bg-white/[0.02] border border-white/10">
+              <div class="w-full h-10 mb-6 rounded-lg bg-aa-600/20 flex items-center justify-center">
+                <span class="text-aa-500 font-bold" style="font-size: 1.2rem; line-height: 1; display: block; margin: 0 auto;">INTEGRITY</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Faith-Driven Excellence</h3>
+              <p class="text-white/70">We operate with integrity and excellence at the core of everything we deliver. Our faith isn't just a label—it's our commitment to transparency, ethics, and treating your project like our own.</p>
+            </div>
+            <div class="p-8 rounded-xl bg-white/[0.02] border border-white/10">
+              <div class="w-full h-10 mb-6 rounded-lg bg-aa-600/20 flex items-center justify-center">
+                <span class="text-aa-500 font-bold whitespace-nowrap" style="font-size: 1.2rem; line-height: 1; display: block; margin: 0 auto;">10+ years of experience</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Proven Expertise</h3>
+              <p class="text-white/70">Over 10 years of experience in web development and content creation means we know what works. We execute quickly and accurately because we've been in the trenches.</p>
+            </div>
+            <div class="p-8 rounded-xl bg-white/[0.02] border border-white/10">
+              <div class="w-full h-10 mb-6 rounded-lg bg-aa-600/20 flex items-center justify-center">
+                <span class="text-aa-500 font-bold" style="font-size: 1.2rem; line-height: 1; display: block; margin: 0 auto;">SPEED</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Real Results, Fast</h3>
+              <p class="text-white/70">We don't waste time. We leverage AI to deliver professional results in days that traditionally take weeks or months. Speed without compromising quality.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Study Section -->
+      <section class="border-t border-white/10 bg-white/[0.01]">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold">Success Stories</h2>
+            <p class="mt-3 text-white/70 max-w-2xl mx-auto">Real projects, real results, real impact</p>
+          </div>
+          <div class="max-w-4xl mx-auto p-8 rounded-xl bg-white/[0.02] border border-white/10">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-aa-500 mb-2">EZ Pants</h3>
+                <p class="text-xl font-semibold mb-4">From Concept to Launch in Days</p>
+                <div class="space-y-4 text-white/80">
+                  <div>
+                    <h4 class="font-semibold text-white mb-1">Challenge:</h4>
+                    <p class="text-sm">Needed a professional e-commerce site quickly to launch a new product line</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-white mb-1">Solution:</h4>
+                    <p class="text-sm">AI-powered website with custom copywriting, product photography, and full development</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-white mb-1">Results:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li>✓ Launched in days, not months</li>
+                      <li>✓ Saved $8,000+ in traditional fees</li>
+                      <li>✓ Professional, conversion-optimized design</li>
+                    </ul>
+                  </div>
+                </div>
+                <a href="https://ezpants.com" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center px-5 py-3 rounded bg-aa-600 hover:bg-aa-700 font-medium">
+                  View Live Site <span class="ml-2">→</span>
+                </a>
+              </div>
+              <div class="relative h-64 md:h-full rounded-lg overflow-hidden border border-white/10">
+                <a href="https://ezpants.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/ez-pants-new-logo.jpg" alt="EZ Pants Logo" class="w-full h-full object-contain">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 text-center">
+            <a href="/case-studies.html" class="inline-flex items-center text-aa-500 hover:text-aa-600 font-medium">
+              View all case studies <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="start-project" class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold">Start Your Project</h2>
+              <p class="mt-3 text-white/70 max-w-prose">We'll reply within 1 business day and share a short list of options for your goals.</p>
+              <ul class="mt-6 space-y-2 text-white/70 text-sm">
+                <li>• Ethical and transparent use of AI</li>
+                <li>• WCAG AA accessibility</li>
+                <li>• Clear timelines and deliverables</li>
+              </ul>
+            </div>
+            <form id="lead-form" class="p-6 rounded-xl bg-white/[0.02] border border-white/10">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-sm">Name</label>
+                  <input id="name" name="name" type="text" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm">Email</label>
+                  <input id="email" name="email" type="email" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                </div>
+                <div>
+                  <label for="org" class="block text-sm">Organization</label>
+                  <input id="org" name="org" type="text" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                </div>
+                <div>
+                  <label for="role" class="block text-sm">Role</label>
+                  <input id="role" name="role" type="text" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="need" class="block text-sm">Primary need</label>
+                  <select id="need" name="need" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600 text-white">
+                    <option value="AI strategy" class="text-white bg-gray-800">AI strategy</option>
+                    <option value="Automation/agents" class="text-white bg-gray-800">Automation/agents</option>
+                    <option value="Content/asset generation" class="text-white bg-gray-800">Content/asset generation</option>
+                    <option value="Adobe AEM consulting" class="text-white bg-gray-800">Adobe AEM consulting</option>
+                    <option value="TikTok Shop optimization" class="text-white bg-gray-800">TikTok Shop optimization</option>
+                    <option value="Ecommerce acceleration" class="text-white bg-gray-800">Ecommerce acceleration</option>
+                    <option value="Training/workshops" class="text-white bg-gray-800">Training/workshops</option>
+                    <option value="Analytics dashboards" class="text-white bg-gray-800">Analytics dashboards</option>
+                    <option value="Concierge support" class="text-white bg-gray-800">Concierge support</option>
+                  </select>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="message" class="block text-sm">Message (optional)</label>
+                  <textarea id="message" name="message" rows="4" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"></textarea>
+                </div>
+                <div class="sm:col-span-2 flex items-center gap-2">
+                  <input id="consent" name="consent" type="checkbox" required class="h-4 w-4 rounded border-white/20 bg-white/5">
+                  <label for="consent" class="text-sm text-white/80">I agree to the <a class="underline" href="/legal/privacy.html">privacy policy</a>.</label>
+                </div>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <button type="submit" class="px-4 py-2 rounded bg-aa-600 hover:bg-aa-700 font-medium">Submit</button>
+                <a href="/contact.html#schedule" class="px-4 py-2 rounded border border-white/20 hover:border-white/40">Or book a call</a>
+              </div>
+              <p id="lead-status" class="mt-3 text-sm text-white/70" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+          <h2 class="text-2xl font-bold">Announcements</h2>
+          <div id="announcement-marquee" class="mt-6 overflow-hidden">
+            <div id="announcement-track" class="flex items-center gap-8 whitespace-nowrap">
+              <a href="#" class="text-sm text-white/80 hover:text-white motion-hover">2025-09-01 — Now booking Q4 pilots</a>
+              <span class="inline-block h-3 w-px bg-white/20"></span>
+              <a href="#" class="text-sm text-white/80 hover:text-white motion-hover">2025-08-15 — Guide: Content automation for small teams</a>
+              <span class="inline-block h-3 w-px bg-white/20"></span>
+              <a href="#" class="text-sm text-white/80 hover:text-white motion-hover">2025-07-20 — New TikTok Shop optimization checklist</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="start-pilot" class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-12 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">Ready to start a pilot?</h3>
+            <p class="text-white/70">Kick off within 1–2 weeks after a short audit.</p>
+          </div>
+          <a href="/pilot.html" class="px-5 py-3 rounded bg-aa-600 hover:bg-aa-700">Start a Pilot</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="inline-block w-2.5 h-6 rounded bg-aa-600"></span>
+              <span class="font-semibold tracking-tight text-lg">Altared Alchemie</span>
+            </div>
+            <p class="text-sm text-white/70 max-w-md mb-4">Faith-driven AI consultancy committed to integrity, excellence, and ethical AI use. Empowering businesses, churches, and creators with practical AI solutions.</p>
+            <div class="flex gap-4 text-sm">
+              <a href="mailto:jlmiller12s@gmail.com" class="text-white/70 hover:text-white">Email</a>
+              <a href="https://www.linkedin.com/company/altaredalchemie" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white">LinkedIn</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-3">Quick Links</h3>
+            <div class="space-y-2 text-sm text-white/70">
+              <a href="/index.html" class="block hover:text-white">Home</a>
+              <a href="/services.html" class="block hover:text-white">Services</a>
+              <a href="/case-studies.html" class="block hover:text-white">Case Studies</a>
+              <a href="/about.html" class="block hover:text-white">About</a>
+              <a href="/resources.html" class="block hover:text-white">Resources</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-3">Get Started</h3>
+            <div class="space-y-2 text-sm text-white/70">
+              <a href="/contact.html" class="block hover:text-white">Contact</a>
+              <a href="/contact.html#schedule" class="block hover:text-white">Schedule Consultation</a>
+              <a href="/pilot.html" class="block hover:text-white">Start a Pilot</a>
+              <a href="/legal/privacy.html" class="block hover:text-white">Privacy Policy</a>
+              <a href="/legal/terms.html" class="block hover:text-white">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+        <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+          <p>© <span id="year"></span> Altared Alchemie. All rights reserved.</p>
+          <p class="text-center md:text-right">Built with integrity, powered by AI, driven by faith</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      const form = document.getElementById('lead-form');
+      const statusEl = document.getElementById('lead-status');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        if (!data.email || !String(data.email).includes('@')) {
+          statusEl.textContent = 'Please enter a valid email.';
+          return;
+        }
+        const body = encodeURIComponent(
+          `Name: ${data.name || ''}\nEmail: ${data.email || ''}\nOrganization: ${data.organization || ''}\nRole: ${data.role || ''}\nPrimary need: ${data.need || ''}\nMessage: ${data.message || ''}`
+        );
+        const mailto = `mailto:jlmiller12s@gmail.com?subject=New Lead%20(Altared Alchemie Website)&body=${body}`;
+        statusEl.textContent = 'Opening email…';
+        window.location.href = mailto;
+        setTimeout(() => { statusEl.textContent = 'If your email did not open, write to jlmiller12s@gmail.com.' }, 1200);
+      });
+
+      // GSAP animations
+      if (window.gsap) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.set('header', { y: -24, opacity: 0 });
+        gsap.to('header', { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' });
+
+        gsap.from('h1', { y: 24, opacity: 0, duration: 0.8, ease: 'power2.out' });
+        gsap.from('main section:first-of-type p.text-lg', { y: 16, opacity: 0, delay: 0.1, duration: 0.7, ease: 'power2.out' });
+        gsap.from('main section:first-of-type .mt-8 a', { opacity: 0, y: 12, stagger: 0.06, delay: 0.2, duration: 0.5 });
+
+        gsap.utils.toArray('section').slice(1).forEach((section) => {
+          const cards = section.querySelectorAll('.p-6, .grid > a, form, .calendly-inline-widget');
+          if (cards.length) {
+            gsap.from(cards, {
+              opacity: 0,
+              y: 24,
+              duration: 0.6,
+              ease: 'power2.out',
+              stagger: 0.08,
+              scrollTrigger: { trigger: section, start: 'top 80%' }
+            });
+          }
+
+          // Count-up for outcomes numbers
+          if (section.querySelector('.count')) {
+            const counts = section.querySelectorAll('.count');
+            counts.forEach((el) => {
+              const obj = { val: 0 };
+              const target = Number(el.getAttribute('data-to') || '0');
+              ScrollTrigger.create({
+                trigger: section,
+                start: 'top 85%',
+                once: true,
+                onEnter: () => {
+                  gsap.to(obj, {
+                    val: target,
+                    duration: 0.8,
+                    ease: 'power1.out',
+                    onUpdate: () => { el.textContent = String(Math.round(obj.val)).padStart(2, '0'); }
+                  });
+                }
+              });
+            });
+          }
+        });
+
+        // Pinned card stack for Services teaser (desktop only)
+        ScrollTrigger.matchMedia({
+          '(min-width: 768px)': function() {
+            const grid = document.getElementById('animated-services');
+            if (!grid) return;
+            const svcCards = grid.querySelectorAll('.srv-card');
+            if (svcCards.length < 4) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            gsap.set(svcCards, { y: 100, opacity: 0, scale: 0.96 });
+            gsap.timeline({
+              scrollTrigger: {
+                trigger: grid,
+                start: 'top center',
+                end: '+=800',
+                scrub: true,
+                pin: grid,
+                anticipatePin: 1
+              }
+            })
+            .to(svcCards[0], { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out' })
+            .to(svcCards[1], { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out' }, '>-0.35')
+            .to(svcCards[2], { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out' }, '>-0.35')
+            .to(svcCards[3], { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out' }, '>-0.35');
+          }
+        });
+
+        // Header background subtly strengthens on scroll
+        gsap.to('header', { backgroundColor: 'rgba(11,11,11,0.25)', scrollTrigger: { start: 0, end: 200, scrub: true } });
+
+        // Parallax hero accents
+        gsap.to('#blob1', { x: -20, y: -40, ease: 'none', scrollTrigger: { trigger: 'main', start: 'top top', end: '+=600', scrub: true } });
+        gsap.to('#blob2', { x: 30, y: 60, ease: 'none', scrollTrigger: { trigger: 'main', start: 'top top', end: '+=600', scrub: true } });
+        gsap.to('#heroMedia', { y: -30, ease: 'none', scrollTrigger: { trigger: '#heroMedia', start: 'top bottom', end: 'top top', scrub: true } });
+
+        // Marquee (infinite)
+        const marquee = document.getElementById('announcement-marquee');
+        const track = document.getElementById('announcement-track');
+        if (marquee && track) {
+          const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const build = () => {
+            // duplicate children for seamless loop
+            const items = Array.from(track.children);
+            // Clear previous clones
+            track.querySelectorAll('[data-clone]')?.forEach(n => n.remove());
+            items.forEach((n) => { const c = n.cloneNode(true); c.setAttribute('data-clone',''); track.appendChild(c); });
+            const total = Array.from(track.children).reduce((w, el) => w + (el.getBoundingClientRect().width + 32), 0);
+            gsap.set(track, { x: 0 });
+            if (!prefersReduced) {
+              gsap.to(track, { x: -total/2, duration: 22, ease: 'none', repeat: -1 });
+            }
+          };
+          build();
+          window.addEventListener('resize', () => { build(); });
+        }
+
+        // Subtle hover tilt on cards
+        const tiltCards = document.querySelectorAll('.tilt, .srv-card');
+        tiltCards.forEach((card) => {
+          const rx = gsap.quickTo(card, 'rotateX', { duration: 0.3, ease: 'power2.out' });
+          const ry = gsap.quickTo(card, 'rotateY', { duration: 0.3, ease: 'power2.out' });
+          const ty = gsap.quickTo(card, 'y', { duration: 0.3, ease: 'power2.out' });
+          card.addEventListener('mousemove', (e) => {
+            const r = card.getBoundingClientRect();
+            const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+            const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+            ry(dx * 6);
+            rx(-dy * 6);
+          });
+          card.addEventListener('mouseenter', () => { ty(-2); });
+          card.addEventListener('mouseleave', () => { rx(0); ry(0); ty(0); });
+        });
+      }
+      // Mobile menu
+      (function(){
+        const btn = document.getElementById('mobileMenuBtn');
+        const panel = document.getElementById('mobileMenu');
+        if (btn && panel) {
+          btn.addEventListener('click', () => {
+            const open = !panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', open);
+            btn.setAttribute('aria-expanded', String(!open));
+          });
+        }
+      })();
+
+      // Swirl Canvas Background (inspired by Tympanus)
+      (function() {
+        const canvas = document.getElementById('webgl-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let mouseX = width / 2;
+        let mouseY = height / 2;
+        let time = 0;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        // Particle system for swirl effect
+        const particles = [];
+        const particleCount = 150;
+
+        class Particle {
+          constructor() {
+            this.reset();
+            this.age = Math.random() * 100;
+          }
+
+          reset() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = 0;
+            this.vy = 0;
+            this.life = 1;
+            this.maxLife = 100 + Math.random() * 100;
+            this.hue = 0 + Math.random() * 20; // Dark red to red range
+            this.size = 1 + Math.random() * 2;
+          }
+
+          update() {
+            this.age++;
+            
+            // Create swirl motion based on distance from mouse
+            const dx = this.x - mouseX;
+            const dy = this.y - mouseY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const force = Math.max(0, 1 - distance / 300);
+            
+            // Swirl force
+            const angle = Math.atan2(dy, dx) + time * 0.01;
+            this.vx += Math.cos(angle) * force * 0.5;
+            this.vy += Math.sin(angle) * force * 0.5;
+            
+            // Add some randomness and flow
+            this.vx += (Math.random() - 0.5) * 0.1;
+            this.vy += (Math.random() - 0.5) * 0.1;
+            
+            // Apply velocity with damping
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vx *= 0.98;
+            this.vy *= 0.98;
+
+            // Age and fade
+            this.life = Math.max(0, 1 - this.age / this.maxLife);
+
+            // Reset if dead or out of bounds
+            if (this.life <= 0 || this.x < -50 || this.x > width + 50 || this.y < -50 || this.y > height + 50) {
+              this.reset();
+              this.age = 0;
+            }
+          }
+
+          draw() {
+            if (this.life <= 0) return;
+            
+            const alpha = this.life * 0.6;
+            const size = this.size * this.life;
+            
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            ctx.fillStyle = `hsla(${this.hue}, 80%, 45%, ${alpha})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+        }
+
+        // Initialize particles
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+
+        // Mouse tracking
+        function onMouseMove(event) {
+          mouseX = event.clientX;
+          mouseY = event.clientY;
+        }
+
+        window.addEventListener('mousemove', onMouseMove);
+
+        // Animation loop
+        function animate() {
+          requestAnimationFrame(animate);
+          time++;
+
+          // Clear canvas with slight trail effect
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+          ctx.fillRect(0, 0, width, height);
+
+          // Update and draw particles
+          particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+          });
+        }
+
+        // Handle resize
+        function onWindowResize() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+        }
+
+        window.addEventListener('resize', onWindowResize);
+        
+        // Start animation
+        animate();
+      })();
+
+      // Pipeline Background for "What we do" section
+      (function() {
+        const canvas = document.getElementById('pipeline-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const section = canvas.parentElement;
+        let width = section.offsetWidth;
+        let height = section.offsetHeight;
+        let mouseX = width / 2;
+        let mouseY = height / 2;
+        let time = 0;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        // Pipeline system with geometric flowing lines
+        const lines = [];
+        const nodes = [];
+
+        class PipelineNode {
+          constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.originalX = x;
+            this.originalY = y;
+            this.pulse = Math.random() * Math.PI * 2;
+            this.energy = 0;
+          }
+
+          update() {
+            // Pulse animation
+            this.pulse += 0.03;
+            this.energy = (Math.sin(this.pulse) + 1) * 0.5;
+            
+            // Mouse interaction - nodes move slightly toward mouse
+            const dx = mouseX - this.originalX;
+            const dy = mouseY - this.originalY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 150) {
+              const force = (150 - distance) / 150 * 0.3;
+              this.x = this.originalX + dx * force;
+              this.y = this.originalY + dy * force;
+            } else {
+              this.x += (this.originalX - this.x) * 0.05;
+              this.y += (this.originalY - this.y) * 0.05;
+            }
+          }
+
+          draw() {
+            const alpha = 0.2 + this.energy * 0.3;
+            const size = 1.5 + this.energy * 2;
+            
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            ctx.fillStyle = `hsl(0, 70%, ${35 + this.energy * 25}%)`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+        }
+
+        class PipelineLine {
+          constructor(startNode, endNode) {
+            this.startNode = startNode;
+            this.endNode = endNode;
+            this.flow = Math.random();
+            this.flowSpeed = 0.01 + Math.random() * 0.02;
+          }
+
+          update() {
+            this.flow += this.flowSpeed;
+            if (this.flow > 1) this.flow = 0;
+          }
+
+          draw() {
+            ctx.save();
+            
+            // Draw connection line
+            const gradient = ctx.createLinearGradient(
+              this.startNode.x, this.startNode.y,
+              this.endNode.x, this.endNode.y
+            );
+            gradient.addColorStop(0, 'hsla(0, 60%, 30%, 0.1)');
+            gradient.addColorStop(0.5, 'hsla(0, 70%, 40%, 0.3)');
+            gradient.addColorStop(1, 'hsla(0, 60%, 30%, 0.1)');
+            
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(this.startNode.x, this.startNode.y);
+            ctx.lineTo(this.endNode.x, this.endNode.y);
+            ctx.stroke();
+
+            // Draw flowing energy pulse
+            const flowX = this.startNode.x + (this.endNode.x - this.startNode.x) * this.flow;
+            const flowY = this.startNode.y + (this.endNode.y - this.startNode.y) * this.flow;
+            
+            ctx.globalAlpha = 0.8;
+            ctx.fillStyle = `hsl(${0 + Math.sin(time * 0.05) * 15}, 80%, 50%)`;
+            ctx.beginPath();
+            ctx.arc(flowX, flowY, 2, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.restore();
+          }
+        }
+
+        // Create grid of nodes for pipeline
+        const gridCols = 6;
+        const gridRows = 4;
+        for (let row = 0; row < gridRows; row++) {
+          for (let col = 0; col < gridCols; col++) {
+            const x = (width / (gridCols - 1)) * col;
+            const y = (height / (gridRows - 1)) * row;
+            nodes.push(new PipelineNode(x, y));
+          }
+        }
+
+        // Create connections between nearby nodes (circuit-like)
+        for (let i = 0; i < nodes.length; i++) {
+          const node = nodes[i];
+          for (let j = i + 1; j < nodes.length; j++) {
+            const other = nodes[j];
+            const distance = Math.sqrt((node.originalX - other.originalX) ** 2 + (node.originalY - other.originalY) ** 2);
+            if (distance < width / 4 && Math.random() > 0.6) {
+              lines.push(new PipelineLine(node, other));
+            }
+          }
+        }
+
+        // Mouse tracking for this section
+        function onSectionMouseMove(event) {
+          const rect = section.getBoundingClientRect();
+          mouseX = event.clientX - rect.left;
+          mouseY = event.clientY - rect.top;
+        }
+
+        section.addEventListener('mousemove', onSectionMouseMove);
+
+        // Animation loop
+        function animatePipeline() {
+          requestAnimationFrame(animatePipeline);
+          time++;
+
+          // Clear canvas with fade effect
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+          ctx.fillRect(0, 0, width, height);
+
+          // Update and draw lines first (background)
+          lines.forEach(line => {
+            line.update();
+            line.draw();
+          });
+
+          // Update and draw nodes (foreground)
+          nodes.forEach(node => {
+            node.update();
+            node.draw();
+          });
+        }
+
+        // Handle resize
+        function onPipelineResize() {
+          const newWidth = section.offsetWidth;
+          const newHeight = section.offsetHeight;
+          
+          if (newWidth !== width || newHeight !== height) {
+            width = newWidth;
+            height = newHeight;
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Update node positions
+            nodes.forEach((node, index) => {
+              const row = Math.floor(index / gridCols);
+              const col = index % gridCols;
+              node.originalX = (width / (gridCols - 1)) * col;
+              node.originalY = (height / (gridRows - 1)) * row;
+            });
+          }
+        }
+
+        window.addEventListener('resize', onPipelineResize);
+        
+        // Start pipeline animation
+        animatePipeline();
+      })();
+    </script>
+  </body>
+  </html>
