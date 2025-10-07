@@ -382,27 +382,70 @@
                 <li>• Clear timelines and deliverables</li>
               </ul>
             </div>
-            <form id="lead-form" class="p-6 rounded-xl bg-white/[0.02] border border-white/10">
+            <form 
+              id="lead-form" 
+              action="https://formspree.io/f/mblzknyr" 
+              method="POST"
+              class="p-6 rounded-xl bg-white/[0.02] border border-white/10"
+            >
+              <!-- Hidden fields for Formspree configuration -->
+              <input type="hidden" name="_subject" value="New lead from Altared Alchemie" />
+              <input type="hidden" name="_next" value="https://altaredalchemie.com/thank-you.html" />
+              <input type="hidden" name="_captcha" value="true" />
+              
+              <!-- Honeypot for spam protection -->
+              <input type="text" name="_gotcha" style="display:none" />
+
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="name" class="block text-sm">Name</label>
-                  <input id="name" name="name" type="text" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                  <input 
+                    id="name" 
+                    name="name" 
+                    type="text" 
+                    required 
+                    class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"
+                  />
                 </div>
+                
                 <div>
                   <label for="email" class="block text-sm">Email</label>
-                  <input id="email" name="email" type="email" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                  <input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    required 
+                    class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"
+                  />
                 </div>
+                
                 <div>
                   <label for="org" class="block text-sm">Organization</label>
-                  <input id="org" name="org" type="text" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                  <input 
+                    id="org" 
+                    name="organization" 
+                    type="text" 
+                    class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"
+                  />
                 </div>
+                
                 <div>
                   <label for="role" class="block text-sm">Role</label>
-                  <input id="role" name="role" type="text" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                  <input 
+                    id="role" 
+                    name="role" 
+                    type="text" 
+                    class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"
+                  />
                 </div>
+                
                 <div class="sm:col-span-2">
                   <label for="need" class="block text-sm">Primary need</label>
-                  <select id="need" name="need" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600 text-white">
+                  <select 
+                    id="need" 
+                    name="primary_need" 
+                    class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600 text-white"
+                  >
                     <option value="AI strategy" class="text-white bg-gray-800">AI strategy</option>
                     <option value="Automation/agents" class="text-white bg-gray-800">Automation/agents</option>
                     <option value="Content/asset generation" class="text-white bg-gray-800">Content/asset generation</option>
@@ -412,21 +455,51 @@
                     <option value="Training/workshops" class="text-white bg-gray-800">Training/workshops</option>
                     <option value="Analytics dashboards" class="text-white bg-gray-800">Analytics dashboards</option>
                     <option value="Concierge support" class="text-white bg-gray-800">Concierge support</option>
+                    <option value="Custom AI Website" class="text-white bg-gray-800">Custom AI Website</option>
+                    <option value="AI Chatbot Integration" class="text-white bg-gray-800">AI Chatbot Integration</option>
+                    <option value="AI Avatar Clone" class="text-white bg-gray-800">AI Avatar Clone</option>
                   </select>
                 </div>
+                
                 <div class="sm:col-span-2">
                   <label for="message" class="block text-sm">Message (optional)</label>
-                  <textarea id="message" name="message" rows="4" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"></textarea>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="4" 
+                    class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"
+                  ></textarea>
                 </div>
+                
                 <div class="sm:col-span-2 flex items-center gap-2">
-                  <input id="consent" name="consent" type="checkbox" required class="h-4 w-4 rounded border-white/20 bg-white/5">
-                  <label for="consent" class="text-sm text-white/80">I agree to the <a class="underline" href="/legal/privacy.html">privacy policy</a>.</label>
+                  <input 
+                    id="consent" 
+                    name="consent" 
+                    type="checkbox" 
+                    required 
+                    class="h-4 w-4 rounded border-white/20 bg-white/5"
+                  />
+                  <label for="consent" class="text-sm text-white/80">
+                    I agree to the <a class="underline" href="/legal/privacy.html">privacy policy</a>.
+                  </label>
                 </div>
               </div>
+              
               <div class="mt-6 flex gap-3">
-                <button type="submit" class="px-4 py-2 rounded bg-aa-600 hover:bg-aa-700 font-medium">Submit</button>
-                <a href="/contact.html#schedule" class="px-4 py-2 rounded border border-white/20 hover:border-white/40">Or book a call</a>
+                <button 
+                  type="submit" 
+                  class="px-4 py-2 rounded bg-aa-600 hover:bg-aa-700 font-medium transition-colors"
+                >
+                  Submit
+                </button>
+                <a 
+                  href="/contact.html#schedule" 
+                  class="px-4 py-2 rounded border border-white/20 hover:border-white/40 transition-colors"
+                >
+                  Or book a call
+                </a>
               </div>
+              
               <p id="lead-status" class="mt-3 text-sm text-white/70" role="status" aria-live="polite"></p>
             </form>
           </div>
@@ -504,22 +577,58 @@
     <script>
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
-      const form = document.getElementById('lead-form');
-      const statusEl = document.getElementById('lead-status');
-      form?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(form).entries());
-        if (!data.email || !String(data.email).includes('@')) {
-          statusEl.textContent = 'Please enter a valid email.';
-          return;
+      // Formspree form submission handler
+      document.getElementById('lead-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const formData = new FormData(form);
+        const statusEl = document.getElementById('lead-status');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        // Disable submit button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        statusEl.textContent = '';
+        statusEl.className = 'mt-3 text-sm text-white/70';
+        
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Success
+            statusEl.textContent = '✓ Thanks! We\'ll reply within 1 business day.';
+            statusEl.className = 'mt-3 text-sm text-green-400';
+            form.reset();
+            
+            // Optional: Track conversion with analytics
+            if (window.gtag) {
+              gtag('event', 'form_submission', {
+                'event_category': 'contact',
+                'event_label': 'lead_form'
+              });
+            }
+          } else {
+            // Error from Formspree
+            const data = await response.json();
+            throw new Error(data.error || 'Form submission failed');
+          }
+        } catch (error) {
+          // Error handling
+          statusEl.textContent = '✗ Something went wrong. Please email jlmiller12s@gmail.com directly or try again.';
+          statusEl.className = 'mt-3 text-sm text-red-400';
+          console.error('Form submission error:', error);
+        } finally {
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
         }
-        const body = encodeURIComponent(
-          `Name: ${data.name || ''}\nEmail: ${data.email || ''}\nOrganization: ${data.organization || ''}\nRole: ${data.role || ''}\nPrimary need: ${data.need || ''}\nMessage: ${data.message || ''}`
-        );
-        const mailto = `mailto:jlmiller12s@gmail.com?subject=New Lead%20(Altared Alchemie Website)&body=${body}`;
-        statusEl.textContent = 'Opening email…';
-        window.location.href = mailto;
-        setTimeout(() => { statusEl.textContent = 'If your email did not open, write to jlmiller12s@gmail.com.' }, 1200);
       });
 
       // GSAP animations
