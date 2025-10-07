@@ -221,7 +221,7 @@
         </div>
       </section>
 
-      <section class="relative border-t border-white/10 overflow-hidden">
+      <section class="relative border-t border-white/10 overflow-hidden min-h-[500px]">
         <!-- Pipeline Canvas Background for this section -->
         <canvas id="pipeline-canvas" class="absolute inset-0 w-full h-full"></canvas>
         
@@ -961,12 +961,12 @@
           }
 
           draw() {
-            const alpha = 0.2 + this.energy * 0.3;
+            const alpha = 0.6 + this.energy * 0.4; // Make it more opaque
             const size = 1.5 + this.energy * 2;
             
             ctx.save();
             ctx.globalAlpha = alpha;
-            ctx.fillStyle = `hsl(0, 70%, ${35 + this.energy * 25}%)`;
+            ctx.fillStyle = `hsl(0, 70%, ${55 + this.energy * 25}%)`; // Brighter color
             ctx.beginPath();
             ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
             ctx.fill();
@@ -1056,17 +1056,16 @@
         function animatePipeline() {
           requestAnimationFrame(animatePipeline);
           time++;
-
-          // Clear canvas with fade effect
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-          ctx.fillRect(0, 0, width, height);
-
+  
+          // Clear canvas completely for a solid background
+          ctx.clearRect(0, 0, width, height);
+  
           // Update and draw lines first (background)
           lines.forEach(line => {
             line.update();
             line.draw();
           });
-
+  
           // Update and draw nodes (foreground)
           nodes.forEach(node => {
             node.update();
