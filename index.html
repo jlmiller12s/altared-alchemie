@@ -391,7 +391,7 @@
               <!-- Hidden fields for Formspree configuration -->
               <input type="hidden" name="_subject" value="New lead from Altared Alchemie" />
               <input type="hidden" name="_next" value="https://altaredalchemie.com/thank-you.html" />
-              <input type="hidden" name="_captcha" value="true" />
+              
               
               <!-- Honeypot for spam protection -->
               <input type="text" name="_gotcha" style="display:none" />
@@ -615,15 +615,31 @@
               });
             }
           } else {
-            // Error from Formspree
-            const data = await response.json();
-            throw new Error(data.error || 'Form submission failed');
+            // Error from Formspree - try to get error details
+            let errorMessage = 'Form submission failed';
+            try {
+              const data = await response.json();
+              errorMessage = data.error || data.message || errorMessage;
+            } catch (e) {
+              // If we can't parse JSON, use status text
+              errorMessage = response.statusText || errorMessage;
+            }
+            throw new Error(errorMessage);
           }
         } catch (error) {
-          // Error handling
-          statusEl.textContent = '✗ Something went wrong. Please email jlmiller12s@gmail.com directly or try again.';
-          statusEl.className = 'mt-3 text-sm text-red-400';
+          // Error handling with more specific messages
           console.error('Form submission error:', error);
+          
+          if (error.message.includes('reCAPTCHA')) {
+            statusEl.textContent = '✗ reCAPTCHA configuration error. Please try again or email jlmiller12s@gmail.com directly.';
+          } else if (error.message.includes('403')) {
+            statusEl.textContent = '✗ Form access denied. Please email jlmiller12s@gmail.com directly.';
+          } else if (error.message.includes('network') || error.message.includes('fetch')) {
+            statusEl.textContent = '✗ Network error. Please check your connection and try again.';
+          } else {
+            statusEl.textContent = '✗ Something went wrong. Please email jlmiller12s@gmail.com directly or try again.';
+          }
+          statusEl.className = 'mt-3 text-sm text-red-400';
         } finally {
           // Re-enable submit button
           submitBtn.disabled = false;
