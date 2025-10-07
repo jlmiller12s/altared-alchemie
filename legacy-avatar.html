@@ -91,6 +91,7 @@
           <div class="aspect-[4/5] rounded-2xl bg-black/60 border border-neutral-700 shadow-2xl overflow-hidden">
             <iframe 
               src="/test-avatar.html" 
+              id="avatarFrame"
               class="w-full h-full border-0 rounded-2xl"
               title="AI Avatar"
               allow="microphone; camera; autoplay; encrypted-media; fullscreen; display-capture"
@@ -204,6 +205,15 @@
           btn.setAttribute('aria-expanded', String(!open));
         });
       }
+      // Fix iframe path when viewing locally via file:// (so /test-avatar.html resolves)
+      (function(){
+        var f=document.getElementById('avatarFrame');
+        if(f && location.protocol==='file:'){
+          // Use relative path when opened as a local file
+          f.setAttribute('src','./test-avatar.html');
+        }
+      })();
+
       // Analytics hooks
       document.querySelectorAll('[data-track="aa_legacy_avatar_cta"]').forEach((el) => {
         el.addEventListener('click', () => { if (window.gtag) { gtag('event', 'aa_legacy_avatar_cta'); } });
