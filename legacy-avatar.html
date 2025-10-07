@@ -90,11 +90,11 @@
         <div class="relative">
           <div class="aspect-[4/5] rounded-2xl bg-black/60 border border-neutral-700 shadow-2xl overflow-hidden">
             <iframe 
-              src="/test-avatar.html" 
-              id="avatarFrame"
+              src="https://labs.heygen.com/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiI1NWYzMjVkMzk1OTA0NjEzYTg5NjMxMmQ5%0D%0ANjU0YzNkMCIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3Yz%0D%0ALzU1ZjMyNWQzOTU5MDQ2MTNhODk2MzEyZDk2NTRjM2QwL2Z1bGwvMi4yL3ByZXZpZXdfdGFyZ2V0%0D%0ALndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6IjY5%0D%0ANmY3ZjgzY2EyMzQ5OGViMjNkMTUwZTVmMWMxZWU3IiwidXNlcm5hbWUiOiJlMmJkODliNjE0YmQ0%0D%0AOWNkYmJjZDIxYmI4ZjQwY2ZmYiJ9&inIFrame=1"
               class="w-full h-full border-0 rounded-2xl"
-              title="AI Avatar"
-              allow="microphone; camera; autoplay; encrypted-media; fullscreen; display-capture"
+              title="Heygen Avatar"
+              allow="microphone; autoplay; encrypted-media"
+              referrerpolicy="no-referrer"
             ></iframe>
           </div>
         </div>
@@ -205,19 +205,12 @@
           btn.setAttribute('aria-expanded', String(!open));
         });
       }
-      // Fix iframe path when viewing locally via file:// (so /test-avatar.html resolves)
-      (function(){
-        var f=document.getElementById('avatarFrame');
-        if(f && location.protocol==='file:'){
-          // Use relative path when opened as a local file
-          f.setAttribute('src','./test-avatar.html');
-        }
-      })();
-
       // Analytics hooks
       document.querySelectorAll('[data-track="aa_legacy_avatar_cta"]').forEach((el) => {
         el.addEventListener('click', () => { if (window.gtag) { gtag('event', 'aa_legacy_avatar_cta'); } });
       });
+
+      // Removed floating embed in favor of inline iframe above
     </script>
   </body>
   </html>
