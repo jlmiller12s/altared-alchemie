@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - Altared Alchemie</title>
+  <meta name="description" content="Thank you for contacting Altared Alchemie. We'll reply within 1 business day.">
+  <meta name="theme-color" content="#0B0B0B">
+  
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <script>
+    window.tailwind = {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            aa: { 500: '#39FF39', 600: '#15FF15', 700: '#10D210' },
+            charcoal: '#0A2D0A',
+            ink: '#111111',
+            bone: '#F7F3EF',
+            grayui: '#6B7280'
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    :root { color-scheme: dark; }
+    html:focus-within { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
+  </style>
+</head>
+<body class="bg-charcoal text-white antialiased">
+  <div class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-2xl text-center">
+      <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-aa-600/20 flex items-center justify-center">
+        <svg class="w-10 h-10 text-aa-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      
+      <h1 class="text-4xl font-bold mb-4">Thanks for reaching out!</h1>
+      <p class="text-xl text-white/80 mb-8">
+        We'll review your message and reply within 1 business day to <span class="text-aa-500">the email you provided</span>.
+      </p>
+      
+      <div class="space-y-3">
+        <p class="text-white/70">
+          If your email doesn't arrive, please check your spam folder or contact us directly at 
+          <a href="mailto:jlmiller12s@gmail.com" class="text-aa-500 hover:text-aa-600 underline">jlmiller12s@gmail.com</a>
+        </p>
+      </div>
+      
+      <div class="mt-10 flex gap-4 justify-center">
+        <a href="/" class="px-6 py-3 rounded bg-aa-600 hover:bg-aa-700 font-medium transition-colors">
+          Back to Home
+        </a>
+        <a href="/services.html" class="px-6 py-3 rounded border border-white/20 hover:border-white/40 transition-colors">
+          View Services
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
