@@ -204,7 +204,6 @@
     
     // Toggle chat window
     toggle.addEventListener('click', () => {
-      container.classList.remove('aa-chatbot-hidden');
       window.classList.remove('aa-chatbot-window-hidden');
       toggle.style.display = 'none';
       
@@ -224,7 +223,6 @@
     close.addEventListener('click', () => {
       window.classList.add('aa-chatbot-window-hidden');
       setTimeout(() => {
-        container.classList.add('aa-chatbot-hidden');
         toggle.style.display = 'flex';
       }, 300);
     });
