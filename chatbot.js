@@ -71,7 +71,7 @@
   // Create chatbot HTML
   function createChatbot() {
     const chatbotHTML = `
-      <div id="aa-chatbot-container" class="aa-chatbot-hidden">
+      <div id="aa-chatbot-container">
         <!-- Floating Button -->
         <button id="aa-chatbot-toggle" aria-label="Open chat">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
