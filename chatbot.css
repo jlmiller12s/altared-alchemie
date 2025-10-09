@@ -53,7 +53,7 @@
   max-width: calc(100vw - 48px);
   height: 600px;
   max-height: calc(100vh - 100px);
-  background: #0A2D0A;
+  background: #1a1a1a;
   border: 1px solid rgba(232, 45, 5, 0.2);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
@@ -73,7 +73,7 @@
 
 /* Header */
 .aa-chatbot-header {
-  background: rgba(17, 17, 17, 0.6);
+  background: rgba(26, 26, 26, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 20px;
@@ -160,7 +160,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #0A2D0A;
+  background: #1a1a1a;
 }
 
 .aa-chatbot-messages::-webkit-scrollbar {
@@ -246,7 +246,7 @@
   gap: 8px;
   flex-wrap: wrap;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(17, 17, 17, 0.4);
+  background: rgba(30, 30, 30, 0.6);
 }
 
 .aa-chatbot-quick-btn {
@@ -276,7 +276,7 @@
   display: flex;
   gap: 8px;
   padding: 16px 20px;
-  background: rgba(17, 17, 17, 0.6);
+  background: rgba(26, 26, 26, 0.9);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -339,7 +339,7 @@
   font-size: 11px;
   color: rgba(255, 255, 255, 0.3);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(17, 17, 17, 0.4);
+  background: rgba(26, 26, 26, 0.6);
 }
 
 /* Mobile Responsive */
@@ -383,7 +383,7 @@
 /* Dark mode optimization (already dark, but for consistency) */
 @media (prefers-color-scheme: dark) {
   #aa-chatbot-window {
-    background: #0A2D0A;
+    background: #1a1a1a;
   }
 }
 
