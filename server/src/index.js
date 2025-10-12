@@ -6,8 +6,12 @@ import { getCurrentUser, requireUser } from './lib/auth.js';
 import { saveStory } from './lib/store.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import Stripe from 'stripe';
 
 dotenv.config();
+
+// Initialize Stripe (add STRIPE_SECRET_KEY to your .env file)
+const stripe = process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
 
 const app = express();
 const API_PORT = process.env.PORT || 5179;
@@ -101,6 +105,106 @@ app.post('/api/stories', async (req,res)=>{
     if((err?.message||'').includes('Auth')) return res.status(401).json({ ok:false, error:'Auth required' });
     console.error(err); return res.status(500).json({ ok:false, error:'Server error' });
   }
+});
+
+// Stripe Checkout Session Creator for Devdoc Voice Generator
+app.post('/api/create-checkout-session', async (req, res) => {
+  try {
+    if (!stripe) {
+      console.error('Stripe not initialized. Add STRIPE_SECRET_KEY to .env');
+      return res.status(500).json({ ok: false, error: 'Payment system not configured' });
+    }
+
+    const { email, name, platform, productId, price } = req.body;
+
+    // Validate input
+    if (!email || !name || !platform || !productId) {
+      return res.status(400).json({ ok: false, error: 'Missing required fields' });
+    }
+
+    // Create Stripe Checkout Session
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      customer_email: email,
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: 'Devdoc Voice Generator',
+              description: `Voice-powered documentation tool for developers (${platform})`,
+            },
+            unit_amount: price || 500, // $5.00 in cents
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${req.headers.origin || 'http://localhost:5177'}/downloads.html?success=true&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin || 'http://localhost:5177'}/downloads.html?canceled=true`,
+      metadata: {
+        customer_name: name,
+        platform: platform,
+        product_id: productId,
+      },
+    });
+
+    console.log('Checkout session created:', session.id, 'for', email);
+    return res.json({ ok: true, sessionId: session.id });
+  } catch (err) {
+    console.error('Stripe checkout error:', err);
+    return res.status(500).json({ ok: false, error: 'Failed to create checkout session' });
+  }
+});
+
+// Stripe Webhook Handler (for payment confirmation and license delivery)
+app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  if (!stripe || !webhookSecret) {
+    console.warn('Stripe webhook received but not configured');
+    return res.status(400).send('Webhook not configured');
+  }
+
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+  } catch (err) {
+    console.error('Webhook signature verification failed:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Handle the event
+  switch (event.type) {
+    case 'checkout.session.completed':
+      const session = event.data.object;
+      console.log('Payment successful:', session.id);
+      
+      // TODO: Send download link and license key via email
+      const customerEmail = session.customer_email;
+      const metadata = session.metadata;
+      
+      console.log(`Send license to ${customerEmail} for platform ${metadata.platform}`);
+      // In production, integrate with email service (SendGrid, Mailgun, etc.)
+      // and store license in database
+      
+      break;
+
+    case 'payment_intent.succeeded':
+      console.log('Payment intent succeeded:', event.data.object.id);
+      break;
+
+    case 'payment_intent.payment_failed':
+      console.log('Payment failed:', event.data.object.id);
+      break;
+
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
+
+  res.json({ received: true });
 });
 
 // Explicitly serve index.html for root path
