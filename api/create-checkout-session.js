@@ -1,7 +1,5 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 export default async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -33,6 +31,9 @@ export default async function handler(req, res) {
       console.error('STRIPE_SECRET_KEY not configured');
       return res.status(500).json({ ok: false, error: 'Payment system not configured' });
     }
+
+    // Initialize Stripe with the secret key
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
