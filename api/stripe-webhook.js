@@ -34,9 +34,7 @@ export default async function handler(req, res) {
     
     // Generate download link based on platform
     const downloadLinks = {
-      'windows': 'https://your-storage.com/devdoc-voice-generator-windows.exe',
-      'mac-intel': 'https://your-storage.com/devdoc-voice-generator-mac-intel.dmg',
-      'mac-arm': 'https://your-storage.com/devdoc-voice-generator-mac-arm.dmg'
+      'windows': 'https://pub-767a93716de7477dabb45fd2854058a2.r2.dev/downloads/windows/DevDocVoiceGenerator-Setup-1.0.0-Windows.exe',
     };
     
     const downloadUrl = downloadLinks[platform] || downloadLinks['windows'];
