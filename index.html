@@ -338,14 +338,6 @@
                   <label for="email" class="block text-sm">Email</label>
                   <input id="email" name="email" type="email" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
                 </div>
-                <div>
-                  <label for="org" class="block text-sm">Organization</label>
-                  <input id="org" name="org" type="text" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
-                </div>
-                <div>
-                  <label for="role" class="block text-sm">Role</label>
-                  <input id="role" name="role" type="text" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
-                </div>
                 <div class="sm:col-span-2">
                   <label for="need" class="block text-sm">Primary need</label>
                   <select id="need" name="need" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600 text-white">
@@ -415,7 +407,7 @@
             </div>
             <p class="text-sm text-white/70 max-w-md mb-4">Faith-driven AI consultancy committed to integrity, excellence, and ethical AI use. Empowering businesses, churches, and creators with practical AI solutions.</p>
             <div class="flex gap-4 text-sm">
-              <a href="mailto:jlmiller12s@gmail.com" class="text-white/70 hover:text-white">Email</a>
+              <a href="mailto:jimmie@altaredalchemie.com" class="text-white/70 hover:text-white">Email</a>
               <a href="https://www.linkedin.com/company/altaredalchemie" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white">LinkedIn</a>
             </div>
           </div>
@@ -452,20 +444,41 @@
       if (yearEl) yearEl.textContent = new Date().getFullYear();
       const form = document.getElementById('lead-form');
       const statusEl = document.getElementById('lead-status');
-      form?.addEventListener('submit', (e) => {
+      form?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form).entries());
         if (!data.email || !String(data.email).includes('@')) {
           statusEl.textContent = 'Please enter a valid email.';
           return;
         }
-        const body = encodeURIComponent(
-          `Name: ${data.name || ''}\nEmail: ${data.email || ''}\nOrganization: ${data.organization || ''}\nRole: ${data.role || ''}\nPrimary need: ${data.need || ''}\nMessage: ${data.message || ''}`
-        );
-        const mailto = `mailto:jlmiller12s@gmail.com?subject=New Lead%20(Altared Alchemie Website)&body=${body}`;
-        statusEl.textContent = 'Opening email…';
-        window.location.href = mailto;
-        setTimeout(() => { statusEl.textContent = 'If your email did not open, write to jlmiller12s@gmail.com.' }, 1200);
+        
+        statusEl.textContent = 'Sending…';
+        
+        try {
+          const response = await fetch('/api/contact-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: data.name,
+              email: data.email,
+              need: data.need,
+              message: data.message,
+              formType: 'New Lead'
+            })
+          });
+          
+          const result = await response.json();
+          
+          if (response.ok) {
+            statusEl.textContent = '✓ Message sent! We\'ll reply within one business day.';
+            form.reset();
+          } else {
+            statusEl.textContent = `Error: ${result.error || 'Failed to send message'}`;
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          statusEl.textContent = 'Error sending message. Please email us at jimmie@altaredalchemie.com';
+        }
       });
 
       // GSAP animations

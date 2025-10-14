@@ -125,15 +125,37 @@
       document.getElementById('year').textContent=new Date().getFullYear();
       const form=document.getElementById('magnet');
       const statusEl=document.getElementById('status');
-      form?.addEventListener('submit',(e)=>{
+      form?.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const data=Object.fromEntries(new FormData(form).entries());
         if(!data.email||!String(data.email).includes('@')){statusEl.textContent='Please enter a valid email.';return}
-        const subject='AI Playbook Request';
-        const body=encodeURIComponent(`Email: ${data.email}`);
-        statusEl.textContent='Opening email…';
-        window.location.href=`mailto:hello@altaredalchemie.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-        setTimeout(()=>{statusEl.textContent='If your email did not open, write to hello@altaredalchemie.com.'},1200);
+        
+        statusEl.textContent='Sending…';
+        
+        try {
+          const response = await fetch('/api/contact-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: 'AI Playbook Request',
+              email: data.email,
+              message: 'Requesting the AI Playbook',
+              formType: 'AI Playbook Request'
+            })
+          });
+          
+          const result = await response.json();
+          
+          if (response.ok) {
+            statusEl.textContent = '✓ Request received! Check your email for the playbook.';
+            form.reset();
+          } else {
+            statusEl.textContent = `Error: ${result.error || 'Failed to send request'}`;
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          statusEl.textContent = 'Error sending request. Please email us at jimmie@altaredalchemie.com';
+        }
       });
 
       if (window.gsap) {

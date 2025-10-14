@@ -26,7 +26,7 @@
     },
     'contact': {
       keywords: ['contact', 'reach', 'email', 'phone', 'call', 'schedule', 'meeting'],
-      answer: 'I\'d be happy to help you get in touch!\n\n📧 Email: jlmiller12s@gmail.com\n🔗 LinkedIn: linkedin.com/company/altaredalchemie\n\nYou can also:\n• <a href="/contact.html#schedule" target="_blank">Schedule a free 15-min consultation</a>\n• <a href="/pilot.html" target="_blank">Start a pilot project</a>\n\nWhat works best for you?'
+      answer: 'I\'d be happy to help you get in touch!\n\n📧 Email: jimmie@altaredalchemie.com\n🔗 LinkedIn: linkedin.com/company/altaredalchemie\n\nYou can also:\n• <a href="/contact.html#schedule" target="_blank">Schedule a free 15-min consultation</a>\n• <a href="/pilot.html" target="_blank">Start a pilot project</a>\n\nWhat works best for you?'
     },
     'website': {
       keywords: ['website', 'web design', 'web development', 'site'],
@@ -54,7 +54,7 @@
     },
     'default': {
       keywords: [],
-      answer: 'Thanks for your question! While I can help with general information, I\'d recommend:\n\n• <a href="/contact.html#schedule" target="_blank">Schedule a free 15-min consultation</a> for personalized answers\n• Email us at jlmiller12s@gmail.com\n• Check out our <a href="/resources.html" target="_blank">resources page</a>\n\nIs there anything else I can help you with?'
+      answer: 'Thanks for your question! While I can help with general information, I\'d recommend:\n\n• <a href="/contact.html#schedule" target="_blank">Schedule a free 15-min consultation</a> for personalized answers\n• Email us at jimmie@altaredalchemie.com\n• Check out our <a href="/resources.html" target="_blank">resources page</a>\n\nIs there anything else I can help you with?'
     }
   };
 

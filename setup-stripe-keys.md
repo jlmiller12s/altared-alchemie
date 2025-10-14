@@ -34,7 +34,7 @@ STRIPE_SECRET_KEY=sk_live_PUT_YOUR_SECRET_KEY_HERE
 STRIPE_WEBHOOK_SECRET=
 
 # Support Email
-SUPPORT_EMAIL=jlmiller12s@gmail.com
+SUPPORT_EMAIL=jimmie@altaredalchemie.com
 
 # Application URLs
 FRONTEND_URL=http://localhost:5177

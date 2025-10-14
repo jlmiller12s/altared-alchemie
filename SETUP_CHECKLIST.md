@@ -30,7 +30,7 @@ STRIPE_WEBHOOK_SECRET=whsec_YOUR_WEBHOOK_SECRET_HERE
 
 # Server Config
 PORT=5179
-SUPPORT_EMAIL=jlmiller12s@gmail.com
+SUPPORT_EMAIL=jimmie@altaredalchemie.com
 ```
 
 ### 3. Configure Frontend Stripe Key

@@ -125,14 +125,37 @@
       document.getElementById('year').textContent=new Date().getFullYear();
       const form=document.getElementById('contact-form');
       const statusEl=document.getElementById('status');
-      form?.addEventListener('submit',(e)=>{
+      form?.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form).entries());
         if (!data.email || !String(data.email).includes('@')) { statusEl.textContent='Please enter a valid email.'; return; }
-        const body=encodeURIComponent(`Name: ${data.name||''}\nEmail: ${data.email||''}\nMessage: ${data.message||''}`);
-        statusEl.textContent='Opening email…';
-        window.location.href=`mailto:jlmiller12s@gmail.com?subject=Contact%20(Altared Alchemie Website)&body=${body}`;
-        setTimeout(()=>{statusEl.textContent='If your email did not open, write to jlmiller12s@gmail.com.'},1200);
+        
+        statusEl.textContent='Sending…';
+        
+        try {
+          const response = await fetch('/api/contact-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: data.name,
+              email: data.email,
+              message: data.message,
+              formType: 'Contact'
+            })
+          });
+          
+          const result = await response.json();
+          
+          if (response.ok) {
+            statusEl.textContent = '✓ Message sent! We\'ll reply within one business day.';
+            form.reset();
+          } else {
+            statusEl.textContent = `Error: ${result.error || 'Failed to send message'}`;
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          statusEl.textContent = 'Error sending message. Please email us at jimmie@altaredalchemie.com';
+        }
       });
 
       if (window.gsap) {
