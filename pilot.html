@@ -24,6 +24,7 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/chatbot.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   </head>
@@ -120,5 +121,6 @@
         if(btn&&panel){btn.addEventListener('click',()=>{const open=!panel.classList.contains('hidden');panel.classList.toggle('hidden',open);btn.setAttribute('aria-expanded',String(!open));});}
       })();
     </script>
+    <script src="/chatbot.js"></script>
   </body>
   </html>
