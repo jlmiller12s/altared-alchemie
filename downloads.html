@@ -24,7 +24,6 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://js.stripe.com/v3/"></script>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Altared Alchemie">
     <meta property="og:title" content="Downloads — Altared Alchemie">
@@ -94,7 +93,6 @@
           <a class="hover:text-white glow-hover" href="/case-studies.html">Case Studies</a>
           <a class="hover:text-white glow-hover" href="/legacy-avatar">Legacy Avatar</a>
           <a class="hover:text-white glow-hover" href="/about.html">About</a>
-          <a class="hover:text-white glow-hover" href="/resources.html">Resources</a>
           <a class="hover:text-white glow-hover" href="/downloads.html">Downloads</a>
           <a class="hover:text-white glow-hover" href="/contact.html">Contact</a>
         </nav>
@@ -111,7 +109,6 @@
         <a class="block py-2 text-white/80 hover:text-white" href="/case-studies.html">Case Studies</a>
         <a class="block py-2 text-white/80 hover:text-white" href="/legacy-avatar">Legacy Avatar</a>
         <a class="block py-2 text-white/80 hover:text-white" href="/about.html">About</a>
-        <a class="block py-2 text-white/80 hover:text-white" href="/resources.html">Resources</a>
         <a class="block py-2 text-white/80 hover:text-white" href="/downloads.html">Downloads</a>
         <a class="block py-2 text-white/80 hover:text-white" href="/contact.html">Contact</a>
       </nav>
@@ -135,8 +132,8 @@
             <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold text-red-500 bg-red-600/20 rounded-full border border-red-600/40">
               NEW RELEASE
             </div>
-            <h2 class="text-3xl sm:text-4xl font-bold">Devdoc Voice Generator</h2>
-            <p class="mt-4 text-lg text-white/80">Create documentation on the fly with voice-powered transcription and instant publishing to wiki platforms.</p>
+            <h2 class="text-3xl sm:text-4xl font-bold">AutoDoc Flow</h2>
+            <p class="mt-4 text-lg text-white/80">Create professional documentation by just talking. Transform your voice into beautifully formatted docs in seconds.</p>
             
             <div class="mt-8 space-y-4">
               <h3 class="text-xl font-semibold text-red-500">Key Features</h3>
@@ -151,7 +148,7 @@
                 </li>
                 <li class="flex items-start">
                   <span class="feature-check">✓</span>
-                  <span><strong>Direct Publishing:</strong> Upload or publish directly to Confluence, Notion, GitHub Wiki, and more</span>
+                  <span><strong>GitHub Wiki Integration:</strong> One-click publish to your repositories</span>
                 </li>
                 <li class="flex items-start">
                   <span class="feature-check">✓</span>
@@ -163,7 +160,7 @@
                 </li>
                 <li class="flex items-start">
                   <span class="feature-check">✓</span>
-                  <span><strong>Offline Capable:</strong> Continue working even without internet connection</span>
+                  <span><strong>100% Private:</strong> All data stored locally on your computer</span>
                 </li>
               </ul>
             </div>
@@ -200,75 +197,24 @@
                 <span class="text-white/70">Support</span>
                 <span class="font-semibold">Email & Community</span>
               </div>
-              
             </div>
 
-            <form id="purchase-form" class="space-y-4">
-              <div>
-                <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  required 
-                  placeholder="your.email@example.com"
-                  class="w-full px-4 py-3 rounded-lg bg-white/[0.03] border border-white/10 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-white placeholder-white/40"
-                />
-                <p class="mt-1 text-xs text-white/50">Download link will be sent to this email</p>
-              </div>
+            <a 
+              href="https://altaredalchemie.sellfy.store/p/auto-doc-flow/"
+              target="_blank"
+              class="block w-full py-4 px-6 rounded-lg bg-red-600 hover:bg-red-700 font-bold text-lg transition-colors duration-200 text-center mb-4"
+            >
+              Get Instant Access
+            </a>
 
-              <div>
-                <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  required 
-                  placeholder="John Doe"
-                  class="w-full px-4 py-3 rounded-lg bg-white/[0.03] border border-white/10 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-white placeholder-white/40"
-                />
-              </div>
+            <div class="space-y-2 text-sm text-center text-white/60 mb-6">
+              <p>🔒 Secure checkout via Sellfy</p>
+              <p>📧 Instant download after purchase</p>
+              <p>✅ 30-day money back guarantee</p>
+            </div>
 
-              <div>
-                <label for="platform" class="block text-sm font-medium mb-2">Platform</label>
-                <select 
-                  id="platform" 
-                  name="platform" 
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-white/[0.03] border border-white/10 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-white"
-                >
-                  <option value="" class="bg-neutral-900">Select your platform</option>
-                  <option value="windows" class="bg-neutral-900">Windows (64-bit)</option>
-                </select>
-              </div>
-
-              <div class="flex items-start gap-2 pt-2">
-                <input 
-                  type="checkbox" 
-                  id="terms" 
-                  name="terms" 
-                  required
-                  class="mt-1 h-4 w-4 rounded border-white/20 bg-white/5 focus:ring-2 focus:ring-red-600"
-                />
-                <label for="terms" class="text-sm text-white/70">
-                  I agree to the <a href="/legal/terms.html" class="text-red-500 hover:text-red-600 underline">Terms of Service</a> and <a href="/legal/privacy.html" class="text-red-500 hover:text-red-600 underline">Privacy Policy</a>
-                </label>
-              </div>
-
-              <button 
-                type="submit" 
-                id="purchase-btn"
-                class="w-full py-4 px-6 rounded-lg bg-red-600 hover:bg-red-700 font-bold text-lg transition-colors duration-200 flex items-center justify-center gap-2"
-              >
-                <span id="btn-text">Purchase Now - $5</span>
-                <span id="btn-spinner" class="loading-spinner hidden"></span>
-              </button>
-
-              <p id="payment-status" class="text-sm text-center text-white/70 min-h-[1.5rem]" role="status" aria-live="polite"></p>
-            </form>
-
-            <div class="mt-6 pt-6 border-t border-white/10 text-center">
-              <p class="text-xs text-white/50">🔒 Secure payment powered by Stripe</p>
+            <div class="pt-6 border-t border-white/10 text-center">
+              <p class="text-xs text-white/50">🔒 Secure payment processing</p>
               <p class="text-xs text-white/50 mt-1">Your payment information is encrypted and secure</p>
             </div>
           </div>
@@ -383,12 +329,12 @@
             <p class="text-white/70">The single-user license allows installation on up to 3 devices for personal use. For team licenses, please <a href="/contact.html" class="text-aa-500 hover:text-aa-600 underline">contact us</a>.</p>
           </div>
           <div class="p-6 rounded-xl bg-white/[0.02] border border-white/10">
-            <h3 class="font-semibold text-lg mb-2">Which wiki platforms are supported?</h3>
-            <p class="text-white/70">Currently supports GitHub Wiki, GitLab Wiki. We're constantly adding new integrations.</p>
+            <h3 class="font-semibold text-lg mb-2">Do I need an OpenAI API key?</h3>
+            <p class="text-white/70">Yes, you'll need an OpenAI API key for AI transcription features. Creating an account is free, and you only pay for what you use (~$0.05 per document). Full setup instructions are included.</p>
           </div>
           <div class="p-6 rounded-xl bg-white/[0.02] border border-white/10">
             <h3 class="font-semibold text-lg mb-2">Is my data secure?</h3>
-            <p class="text-white/70">Yes. All transcription happens locally on your device. We never store or transmit your voice recordings or documentation content to external servers.</p>
+            <p class="text-white/70">Yes. All documents are stored locally on your computer. Your OpenAI API key stays on your device, and no telemetry or tracking is performed. You control your data completely.</p>
           </div>
         </div>
       </section>
@@ -444,216 +390,7 @@
         }
       })();
 
-      // Payment Processing with Stripe
-      const form = document.getElementById('purchase-form');
-      const statusEl = document.getElementById('payment-status');
-      const btnText = document.getElementById('btn-text');
-      const btnSpinner = document.getElementById('btn-spinner');
-      const purchaseBtn = document.getElementById('purchase-btn');
-
-      // Handle purchase buttons for other products
-      document.querySelectorAll('.purchase-product-btn').forEach(btn => {
-        btn.addEventListener('click', async (e) => {
-          const button = e.currentTarget;
-          const productId = button.dataset.productId;
-          const productName = button.dataset.productName;
-          const price = parseInt(button.dataset.price);
-          
-          // Create a simple prompt for email
-          const email = prompt(`Enter your email address to purchase "${productName}":`);
-          if (!email || !email.includes('@')) {
-            alert('Please enter a valid email address.');
-            return;
-          }
-          
-          const name = prompt('Enter your full name:');
-          if (!name || name.trim().length < 2) {
-            alert('Please enter your full name.');
-            return;
-          }
-          
-          // Show loading state
-          button.disabled = true;
-          button.innerHTML = '<span class="loading-spinner mx-auto"></span>';
-          
-          try {
-            // Call backend to create Stripe checkout session
-            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-              ? 'http://localhost:5179/api/create-checkout-session'
-              : '/api/create-checkout-session';
-            
-            const response = await fetch(apiUrl, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                email: email,
-                name: name,
-                platform: 'digital-download',
-                productId: productId,
-                price: price
-              })
-            });
-            
-            const result = await response.json();
-            
-            if (!result.ok || !result.sessionId) {
-              throw new Error(result.error || 'Failed to create checkout session');
-            }
-            
-            // Initialize Stripe and redirect to checkout
-            const stripePublicKey = window.__ENV?.STRIPE_PUBLIC_KEY || window.ENV?.STRIPE_PUBLIC_KEY;
-            
-            if (!stripePublicKey || stripePublicKey.includes('YOUR_KEY')) {
-              // Fallback for development: use email method
-              console.warn('Stripe public key not configured. Using email fallback.');
-              const subject = encodeURIComponent(productName + ' Purchase Request');
-              const body = encodeURIComponent(
-                `I would like to purchase ${productName}.\n\n` +
-                `Name: ${name}\n` +
-                `Email: ${email}\n` +
-                `Amount: $${(price / 100).toFixed(2)}\n\n` +
-                `Session ID: ${result.sessionId}\n\n` +
-                `Please send me payment instructions.`
-              );
-              window.location.href = `mailto:jimmie@altaredalchemie.com?subject=${subject}&body=${body}`;
-              return;
-            }
-            
-            const stripe = Stripe(stripePublicKey);
-            const { error } = await stripe.redirectToCheckout({ sessionId: result.sessionId });
-            
-            if (error) {
-              throw new Error(error.message);
-            }
-            
-          } catch (error) {
-            console.error('Payment error:', error);
-            alert(`Payment failed: ${error.message}. Please try again or contact support.`);
-            button.disabled = false;
-            button.textContent = 'Purchase Now';
-          }
-        });
-      });
-
-      // Check for success/cancel parameters in URL
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('success') === 'true') {
-        statusEl.textContent = '✓ Payment successful! Check your email for download instructions.';
-        statusEl.style.color = '#10B981';
-      } else if (urlParams.get('canceled') === 'true') {
-        statusEl.textContent = 'Payment was canceled. You can try again whenever you\'re ready.';
-        statusEl.style.color = '#ffaa44';
-      }
-
-      form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        // Validate
-        if (!data.email || !data.email.includes('@')) {
-          statusEl.textContent = '❌ Please enter a valid email address.';
-          statusEl.style.color = '#ff4444';
-          return;
-        }
-        
-        if (!data.name || data.name.trim().length < 2) {
-          statusEl.textContent = '❌ Please enter your full name.';
-          statusEl.style.color = '#ff4444';
-          return;
-        }
-        
-        if (!data.platform) {
-          statusEl.textContent = '❌ Please select your platform.';
-          statusEl.style.color = '#ff4444';
-          return;
-        }
-        
-        if (!data.terms) {
-          statusEl.textContent = '❌ Please agree to the terms and conditions.';
-          statusEl.style.color = '#ff4444';
-          return;
-        }
-        
-        // Show loading state
-        purchaseBtn.disabled = true;
-        btnText.textContent = 'Processing...';
-        btnSpinner.classList.remove('hidden');
-        statusEl.textContent = 'Creating secure checkout session...';
-        statusEl.style.color = '#ffffff99';
-        
-        try {
-          // Call backend to create Stripe checkout session
-          const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-            ? 'http://localhost:5179/api/create-checkout-session'
-            : '/api/create-checkout-session';
-          
-          const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: data.email,
-              name: data.name,
-              platform: data.platform,
-              productId: 'devdoc-voice-generator',
-              price: 500 // $5.00 in cents
-            })
-          });
-          
-          const result = await response.json();
-          
-          if (!result.ok || !result.sessionId) {
-            throw new Error(result.error || 'Failed to create checkout session');
-          }
-          
-          // Initialize Stripe and redirect to checkout
-          const stripePublicKey = window.__ENV?.STRIPE_PUBLIC_KEY || window.ENV?.STRIPE_PUBLIC_KEY;
-          
-          if (!stripePublicKey || stripePublicKey.includes('YOUR_KEY')) {
-            // Fallback for development: use email method
-            console.warn('Stripe public key not configured. Using email fallback.');
-            const subject = 'Devdoc Voice Generator Purchase Request';
-            const body = encodeURIComponent(
-              `I would like to purchase Devdoc Voice Generator.\n\n` +
-              `Name: ${data.name}\n` +
-              `Email: ${data.email}\n` +
-              `Platform: ${data.platform}\n` +
-              `Amount: $49\n\n` +
-              `Session ID: ${result.sessionId}\n\n` +
-              `Please send me payment instructions.`
-            );
-            window.location.href = `mailto:jimmie@altaredalchemie.com?subject=${subject}&body=${body}`;
-            return;
-          }
-          
-          const stripe = Stripe(stripePublicKey);
-          const { error } = await stripe.redirectToCheckout({ sessionId: result.sessionId });
-          
-          if (error) {
-            throw new Error(error.message);
-          }
-          
-        } catch (error) {
-          console.error('Payment error:', error);
-          statusEl.textContent = `❌ ${error.message || 'Payment failed. Please try again or contact support.'}`;
-          statusEl.style.color = '#ff4444';
-          btnText.textContent = 'Purchase Now - $5';
-          btnSpinner.classList.add('hidden');
-          purchaseBtn.disabled = false;
-        }
-      });
-      
-      // Clear status message on input change
-      const inputs = form?.querySelectorAll('input, select');
-      inputs?.forEach(input => {
-        input.addEventListener('change', () => {
-          if (statusEl && statusEl.textContent.startsWith('❌')) {
-            statusEl.textContent = '';
-          }
-        });
-      });
+      // No additional JavaScript needed - using direct Sellfy links
     </script>
   </body>
 </html>
