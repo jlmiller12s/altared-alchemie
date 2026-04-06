@@ -81,13 +81,13 @@
       <!-- Featured Case Study: EZ Pants -->
       <!-- Featured Carousel -->
       <section class="mb-20" id="featured-section">
-        <div class="bg-gradient-to-br from-aa-600/10 to-aa-500/5 rounded-2xl border border-aa-500/20 overflow-hidden">
+        <div class="bg-gradient-to-br from-aa-600/10 to-aa-500/5 rounded-2xl border border-aa-500/20 overflow-hidden w-full relative">
 
           <!-- Slide track -->
-          <div id="featured-track" style="display:flex; transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);">
+          <div id="featured-track" class="flex w-full" style="transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);">
 
             <!-- Slide 1: EZ Pants -->
-            <div style="min-width:100%; flex-shrink:0;" class="p-8 md:p-12">
+            <div class="w-full flex-none p-8 md:p-12" style="flex: 0 0 100%;">
               <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <div class="flex items-center gap-3 mb-4">
@@ -112,9 +112,9 @@
                   </a>
                 </div>
                 <div class="relative">
-                  <div class="aspect-video bg-white/5 rounded-lg border border-white/10 overflow-hidden">
-                    <a href="https://ezpants.com" target="_blank" rel="noopener noreferrer">
-                      <img src="/ez-pants-new-logo.jpg" alt="EZ Pants" class="w-full h-full object-contain">
+                  <div class="aspect-video bg-white/5 rounded-lg border border-white/10 overflow-hidden relative">
+                    <a href="https://ezpants.com" target="_blank" rel="noopener noreferrer" class="absolute inset-0 block w-full h-full">
+                      <img src="ez-pants-new-logo.jpg" alt="EZ Pants" class="w-full h-full object-cover">
                     </a>
                   </div>
                 </div>
@@ -154,7 +154,7 @@
             </div>
 
             <!-- Slide 2: The Music Makeover -->
-            <div style="min-width:100%; flex-shrink:0;" class="p-8 md:p-12">
+            <div class="w-full flex-none p-8 md:p-12" style="flex: 0 0 100%;">
               <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <div class="flex items-center gap-3 mb-4">
@@ -179,8 +179,8 @@
                   </a>
                 </div>
                 <div class="relative">
-                  <div class="aspect-video bg-white/5 rounded-lg border border-white/10 overflow-hidden flex items-center justify-center p-8">
-                    <img src="/music-makeover-logo.png" alt="The Music Makeover" class="max-w-full max-h-full object-contain">
+                  <div class="aspect-video bg-white/5 rounded-lg border border-white/10 overflow-hidden relative flex items-center justify-center p-8 bg-white/10">
+                    <img src="music-makeover-logo.png" alt="The Music Makeover" class="absolute inset-0 w-full h-full object-contain p-8">
                   </div>
                 </div>
               </div>
