@@ -1,11 +1,15 @@
 import Stripe from 'stripe';
 
 export default async function handler(req, res) {
-  // Set CORS headers
+  // Restrict CORS to your domain only
+  const allowedOrigins = ['https://altaredalchemie.com', 'https://www.altaredalchemie.com'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   // Handle OPTIONS request
   if (req.method === 'OPTIONS') {
@@ -19,11 +23,20 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email, name, platform, productId, price } = req.body;
+    const { email, name, platform, productId } = req.body;
 
     // Validate input
     if (!email || !name || !platform || !productId) {
       return res.status(400).json({ ok: false, error: 'Missing required fields' });
+    }
+
+    // Hardcoded price map — never accept price from client
+    const PRICE_MAP = {
+      'devdoc-windows': 500,   // $5.00
+    };
+    const unitAmount = PRICE_MAP[productId];
+    if (!unitAmount) {
+      return res.status(400).json({ ok: false, error: 'Unknown product' });
     }
 
     // Check if Stripe is configured
@@ -47,7 +60,7 @@ export default async function handler(req, res) {
               name: 'Devdoc Voice Generator',
               description: `Voice-powered documentation tool for developers (${platform})`,
             },
-            unit_amount: price || 500, // $5.00 in cents
+            unit_amount: unitAmount,
           },
           quantity: 1,
         },

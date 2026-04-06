@@ -143,7 +143,13 @@
     
     const messageContent = document.createElement('div');
     messageContent.className = 'aa-chatbot-message-content';
-    messageContent.innerHTML = message.replace(/\n/g, '<br>');
+    if (isBot) {
+      // Bot responses are hardcoded strings — HTML links are intentional
+      messageContent.innerHTML = message.replace(/\n/g, '<br>');
+    } else {
+      // User input must NEVER be rendered as HTML — prevents XSS
+      messageContent.textContent = message;
+    }
     
     messageDiv.appendChild(messageContent);
     messagesContainer.appendChild(messageDiv);

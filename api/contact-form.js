@@ -3,11 +3,15 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
-  // Handle CORS
+  // Restrict CORS to your domain only
+  const allowedOrigins = ['https://altaredalchemie.com', 'https://www.altaredalchemie.com'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
@@ -62,8 +66,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error('Contact form error:', error);
     return res.status(500).json({ 
-      error: 'Failed to send email',
-      details: error.message 
+      error: 'Failed to send message. Please try again or email jimmie@altaredalchemie.com directly.'
     });
   }
 }
