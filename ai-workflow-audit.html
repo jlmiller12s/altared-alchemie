@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Workflow Audit &mdash; Altared Alchemie</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="description" content="A fixed-price AI workflow audit that maps your current process, identifies bottlenecks, and delivers a practical AI implementation roadmap in 5 business days.">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script>
+      window.tailwind = {};
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aa: { 500:'#E82D05', 600:'#E82D05', 700:'#b92304' },
+              charcoal:'#0A2D0A',
+              ink:'#111111',
+              bone:'#F7F3EF',
+              grayui:'#6B7280'
+            },
+            boxShadow: {
+              soft: '0 16px 60px rgba(0,0,0,0.35)'
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/chatbot.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Altared Alchemie">
+    <meta property="og:title" content="AI Workflow Audit &mdash; Altared Alchemie">
+    <meta property="og:description" content="Find the highest-value place to use AI in your business before you build or buy another tool.">
+    <meta property="og:image" content="https://altaredalchemie.com/logo.png">
+    <meta property="og:url" content="https://altaredalchemie.com/ai-workflow-audit">
+    <style>
+      :root { color-scheme: dark; }
+      html:focus-within { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
+      .glow-hover{transition: box-shadow .25s ease, transform .2s ease, border-color .25s ease}
+      .glow-hover:hover{box-shadow: 0 0 0 2px rgba(232,45,5,.28), 0 0 24px rgba(232,45,5,.42); transform: translateY(-1px)}
+      .offer-card{transition: transform .2s ease, border-color .25s ease, background-color .25s ease}
+      .offer-card:hover{transform: translateY(-2px); border-color: rgba(232,45,5,.45); background-color: rgba(255,255,255,.035)}
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "AI Workflow Audit",
+        "serviceType": "AI workflow audit",
+        "provider": {
+          "@type": "Organization",
+          "name": "Altared Alchemie",
+          "url": "https://altaredalchemie.com"
+        },
+        "description": "A focused audit that reviews one business workflow, maps AI opportunities, and delivers an implementation roadmap.",
+        "offers": {
+          "@type": "Offer",
+          "price": "997",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://altaredalchemie.com/ai-workflow-audit"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  </head>
+  <body class="bg-neutral-950 text-white antialiased">
+    <script src="/env.js"></script>
+    <script defer src="/nav-flag.js"></script>
+    <header class="sticky top-0 z-50 backdrop-blur border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/index.html" class="flex items-center gap-2" aria-label="Home"><img src="/logo.png" alt="Altared Alchemie" class="h-10 w-auto md:h-10"></a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
+          <a class="hover:text-white glow-hover" href="/services.html" aria-current="page">Services</a>
+          <a class="hover:text-white glow-hover" href="/case-studies.html">Case Studies</a>
+          <a class="hover:text-white glow-hover" href="/legacy-avatar">Legacy Avatar</a>
+          <a class="hover:text-white glow-hover" href="/about.html">About</a>
+          <a class="hover:text-white glow-hover" href="/downloads.html">Downloads</a>
+          <a class="hover:text-white glow-hover" href="/contact.html">Contact</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="/contact.html#schedule" class="px-3 py-2 text-sm rounded border border-white/20 hover:border-white/40 glow-hover">Book a Strategy Call</a>
+          <a href="/pilot.html" class="px-3 py-2 text-sm rounded bg-[#E82D05] hover:bg-[#b92304] text-white font-semibold">Start a Pilot</a>
+        </div>
+        <button id="mobileMenuBtn" class="md:hidden px-3 py-2 text-sm rounded border border-white/20" aria-controls="mobileMenu" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+    <div id="mobileMenu" class="md:hidden hidden border-b border-white/10 bg-neutral-950">
+      <nav class="px-6 py-3 text-sm">
+        <a class="block py-2 text-white hover:text-white" href="/services.html" aria-current="page">Services</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/case-studies.html">Case Studies</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/legacy-avatar">Legacy Avatar</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/about.html">About</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/downloads.html">Downloads</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <main>
+      <section class="relative overflow-hidden border-b border-white/10 bg-neutral-950">
+        <div class="absolute inset-0 bg-white/[0.015]"></div>
+        <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-20 grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-center">
+          <div>
+            <a href="/services.html" class="text-sm text-white/60 hover:text-white">&larr; Back to Services</a>
+            <p class="mt-8 text-[#E82D05] text-sm font-semibold uppercase tracking-wider">Fixed-price AI audit</p>
+            <h1 class="mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">AI Workflow Audit</h1>
+            <p class="mt-5 text-lg text-white/80 max-w-2xl">A practical roadmap for finding where AI can save your business time, reduce manual work, and improve your current process.</p>
+            <p class="mt-4 text-white/70 max-w-2xl">Most businesses know they should be using AI. The problem is not a lack of tools. The problem is knowing where AI actually belongs in the workflow.</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="/contact.html#schedule" class="inline-flex items-center justify-center px-6 py-3 rounded bg-[#E82D05] hover:bg-[#b92304] text-white font-semibold">Start the Audit</a>
+              <a href="#included" class="inline-flex items-center justify-center px-6 py-3 rounded border border-white/20 hover:border-white/40 glow-hover font-medium">See What Is Included</a>
+            </div>
+          </div>
+
+          <aside class="rounded-xl border border-[#E82D05]/40 bg-white/[0.03] p-6 shadow-soft">
+            <p class="text-sm text-white/60">One focused workflow audit</p>
+            <p class="mt-3 text-5xl font-extrabold">$997</p>
+            <p class="mt-3 text-white/70">Delivered in 5 business days after intake is completed.</p>
+            <div class="mt-6 space-y-3 text-sm text-white/75">
+              <div class="flex items-start gap-3">
+                <span class="text-[#E82D05] font-bold">&#10003;</span>
+                <span>Workflow review, AI opportunity map, and automation recommendations.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-[#E82D05] font-bold">&#10003;</span>
+                <span>Simple implementation roadmap for the best first solution.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-[#E82D05] font-bold">&#10003;</span>
+                <span>Optional estimate for Altared Alchemie to build the recommended workflow.</span>
+              </div>
+            </div>
+            <div class="mt-6 rounded-lg border border-white/10 bg-black/20 p-4 text-sm text-white/65">
+              Apply the audit fee toward implementation if you hire Altared Alchemie to build the first recommended workflow within 30 days.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-6 py-14">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+            <p class="text-xs text-white/50 uppercase tracking-wider">01</p>
+            <h2 class="mt-2 font-semibold">Find the real starting point</h2>
+            <p class="mt-2 text-white/70">Identify the workflow where AI can create the most value without forcing it into the wrong place.</p>
+          </div>
+          <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+            <p class="text-xs text-white/50 uppercase tracking-wider">02</p>
+            <h2 class="mt-2 font-semibold">Reduce manual drag</h2>
+            <p class="mt-2 text-white/70">Surface repetitive tasks, broken handoffs, and process gaps that slow your team down.</p>
+          </div>
+          <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+            <p class="text-xs text-white/50 uppercase tracking-wider">03</p>
+            <h2 class="mt-2 font-semibold">Build with confidence</h2>
+            <p class="mt-2 text-white/70">Get a clear path before investing in automation, custom agents, or AI-powered workflow changes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="included" class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-14">
+          <div class="max-w-3xl">
+            <p class="text-[#E82D05] text-sm font-semibold uppercase tracking-wider">What you get</p>
+            <h2 class="mt-2 text-3xl font-bold">A focused review, not a generic AI consultation</h2>
+            <p class="mt-3 text-white/70">Altared Alchemie reviews one current workflow, identifies bottlenecks, maps AI opportunities, and recommends the best first workflow to improve speed, quality, and efficiency.</p>
+          </div>
+
+          <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <h3 class="font-semibold">Workflow Review</h3>
+              <p class="mt-2 text-sm text-white/70">A focused review of the current process, tools, handoffs, bottlenecks, and repetitive tasks.</p>
+            </div>
+            <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <h3 class="font-semibold">AI Opportunity Map</h3>
+              <p class="mt-2 text-sm text-white/70">A prioritized list of where AI can reduce friction, save time, improve quality, or increase speed.</p>
+            </div>
+            <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <h3 class="font-semibold">Automation Recommendations</h3>
+              <p class="mt-2 text-sm text-white/70">Clear guidance on which steps should be automated, assisted by AI, or left human-led.</p>
+            </div>
+            <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <h3 class="font-semibold">Implementation Roadmap</h3>
+              <p class="mt-2 text-sm text-white/70">A simple path for what to build first, what tools are needed, and what level of effort is likely required.</p>
+            </div>
+            <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <h3 class="font-semibold">Tool Recommendations</h3>
+              <p class="mt-2 text-sm text-white/70">Recommended tools, integrations, systems, templates, or lightweight custom workflow options.</p>
+            </div>
+            <div class="offer-card rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <h3 class="font-semibold">Prototype Estimate</h3>
+              <p class="mt-2 text-sm text-white/70">An optional estimate for building the first workflow, assistant, intake system, or automation after the audit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-14 grid lg:grid-cols-[.9fr_1.1fr] gap-10">
+          <div>
+            <p class="text-[#E82D05] text-sm font-semibold uppercase tracking-wider">Best fit</p>
+            <h2 class="mt-2 text-3xl font-bold">Built for teams with real work already moving</h2>
+            <p class="mt-3 text-white/70">This audit is best when you have a process that already exists, but it is slower, messier, or more manual than it needs to be.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 text-sm text-white/75">
+            <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Creative content production workflows</div>
+            <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Marketing request and approval workflows</div>
+            <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Intake forms and document generation</div>
+            <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Project management and task routing</div>
+            <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Manual reporting and spreadsheet-based processes</div>
+            <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Adobe, Workfront, Firefly, Fusion, and Google Workspace workflows</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-14">
+          <div class="max-w-3xl">
+            <p class="text-[#E82D05] text-sm font-semibold uppercase tracking-wider">Delivery timeline</p>
+            <h2 class="mt-2 text-3xl font-bold">From intake to roadmap in 5 business days</h2>
+          </div>
+          <div class="mt-8 grid md:grid-cols-4 gap-6">
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <p class="text-xs text-white/50 uppercase tracking-wider">Day 1</p>
+              <h3 class="mt-2 font-semibold">Intake</h3>
+              <p class="mt-2 text-sm text-white/70">You complete the intake and share workflow materials.</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <p class="text-xs text-white/50 uppercase tracking-wider">Days 2-4</p>
+              <h3 class="mt-2 font-semibold">Review</h3>
+              <p class="mt-2 text-sm text-white/70">Altared Alchemie reviews the process and maps AI opportunities.</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <p class="text-xs text-white/50 uppercase tracking-wider">Day 5</p>
+              <h3 class="mt-2 font-semibold">Roadmap</h3>
+              <p class="mt-2 text-sm text-white/70">You receive the audit summary and practical implementation roadmap.</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] p-6">
+              <p class="text-xs text-white/50 uppercase tracking-wider">Optional</p>
+              <h3 class="mt-2 font-semibold">Walkthrough</h3>
+              <p class="mt-2 text-sm text-white/70">Add a 45-minute walkthrough call after delivery to discuss next steps.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-14 grid lg:grid-cols-2 gap-10">
+          <div>
+            <p class="text-[#E82D05] text-sm font-semibold uppercase tracking-wider">Your outcome</p>
+            <h2 class="mt-2 text-3xl font-bold">You will know what to fix first</h2>
+            <p class="mt-3 text-white/70">By the end of the audit, you will know where AI can create the most value, what the recommended solution should look like, and what it would take to build it.</p>
+            <div class="mt-6 rounded-xl border border-[#E82D05]/30 bg-[#E82D05]/5 p-5 text-white/75">
+              The best next step after the audit is usually a small prototype, workflow assistant, intake system, or automation based on the recommendation.
+            </div>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-6">
+            <h3 class="font-semibold">Audit deliverable structure</h3>
+            <ol class="mt-4 space-y-3 text-sm text-white/75 list-decimal pl-5">
+              <li>Current workflow summary</li>
+              <li>Key bottlenecks and manual steps</li>
+              <li>AI opportunity map</li>
+              <li>Recommended first solution</li>
+              <li>Tool and integration recommendations</li>
+              <li>Implementation roadmap</li>
+              <li>Optional build estimate</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-14 grid lg:grid-cols-2 gap-10">
+          <div>
+            <p class="text-[#E82D05] text-sm font-semibold uppercase tracking-wider">Intake</p>
+            <h2 class="mt-2 text-3xl font-bold">What we ask before the review starts</h2>
+            <p class="mt-3 text-white/70">The intake helps Altared Alchemie understand your workflow, tools, challenges, and business goals before the review begins.</p>
+            <ul class="mt-5 space-y-2 text-sm text-white/75 list-disc pl-5">
+              <li>What workflow or process do you want reviewed?</li>
+              <li>What tools are currently involved?</li>
+              <li>Where does the process usually slow down?</li>
+              <li>Which parts feel repetitive or manual?</li>
+              <li>Who is involved from start to finish?</li>
+              <li>What would success look like after improving it?</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold">Helpful materials</h3>
+            <div class="mt-4 grid sm:grid-cols-2 gap-3 text-sm text-white/75">
+              <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Screenshots of the current process</div>
+              <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Sample forms, spreadsheets, documents, or creative briefs</div>
+              <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">Links to tools involved in the workflow</div>
+              <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4">A short screen recording walking through the process</div>
+              <div class="rounded-lg border border-white/10 bg-white/[0.02] p-4 sm:col-span-2">Existing SOPs, intake forms, templates, or approval notes</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10">
+        <div class="max-w-4xl mx-auto px-6 py-14">
+          <h2 class="text-3xl font-bold">Common questions</h2>
+          <div class="mt-6 divide-y divide-white/10">
+            <details class="py-4">
+              <summary class="cursor-pointer font-medium">Is this a build project?</summary>
+              <p class="mt-2 text-white/70">No. The AI Workflow Audit is the planning step before a build. Implementation is quoted separately after the recommended first solution is clear.</p>
+            </details>
+            <details class="py-4">
+              <summary class="cursor-pointer font-medium">Can the audit fee apply toward implementation?</summary>
+              <p class="mt-2 text-white/70">Yes. If you hire Altared Alchemie to build the first recommended workflow within 30 days, the audit fee can be applied toward implementation.</p>
+            </details>
+            <details class="py-4">
+              <summary class="cursor-pointer font-medium">What is the refund policy?</summary>
+              <p class="mt-2 text-white/70">Due to the strategic nature of the service, refunds are not available once the audit process has started.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-6 pb-16">
+        <div class="rounded-xl border border-[#E82D05]/40 bg-[#E82D05]/5 p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <p class="text-[#E82D05] text-sm font-semibold uppercase tracking-wider">Ready to start?</p>
+            <h2 class="mt-2 text-2xl md:text-3xl font-bold">Get clarity before you build or buy another tool.</h2>
+            <p class="mt-2 text-white/70 max-w-2xl">Start with one workflow, one roadmap, and a clear next step.</p>
+          </div>
+          <a href="/contact.html#schedule" class="inline-flex shrink-0 items-center justify-center px-6 py-3 rounded bg-[#E82D05] hover:bg-[#b92304] text-white font-semibold">Start the Audit</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-8 text-sm text-white/70">
+        &copy; <span id="year"></span> Altared Alchemie &mdash; <a class="underline" href="/legal/privacy.html">Privacy</a> &middot; <a class="underline" href="/legal/terms.html">Terms</a>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      if (window.gsap) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('h1', { y: 24, opacity: 0, duration: 0.7, ease: 'power2.out' });
+        gsap.utils.toArray('section').forEach((sec) => {
+          if (!sec.matches(':first-child')) {
+            gsap.from(sec, { opacity: 0, y: 24, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: sec, start: 'top 85%' } });
+          }
+        });
+      }
+      (function(){
+        const btn = document.getElementById('mobileMenuBtn');
+        const panel = document.getElementById('mobileMenu');
+        if (btn && panel) {
+          btn.addEventListener('click', () => {
+            const open = !panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', open);
+            btn.setAttribute('aria-expanded', String(!open));
+          });
+        }
+      })();
+    </script>
+    <script src="/chatbot.js"></script>
+  </body>
+</html>
