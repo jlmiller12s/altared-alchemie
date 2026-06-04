@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submit an Inquiry - Altared Alchemie</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="description" content="Submit an inquiry to Altared Alchemie. We reply within one business day.">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script>
+      window.tailwind = {};
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aa: { 500:'#39FF39', 600:'#15FF15', 700:'#10D210' },
+              charcoal:'#0A2D0A',
+              ink:'#111111',
+              bone:'#F7F3EF',
+              grayui:'#6B7280'
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/chatbot.css">
+  </head>
+  <body class="bg-neutral-950 text-white antialiased">
+    <script src="/env.js"></script>
+    <script defer src="/nav-flag.js"></script>
+    <header class="sticky top-0 z-50 backdrop-blur border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/index.html" class="flex items-center gap-2" aria-label="Home"><img src="/logo.png" alt="Altared Alchemie" class="h-10 w-auto md:h-10"></a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
+          <a class="hover:text-white glow-hover" href="/services.html">Services</a>
+          <a class="hover:text-white glow-hover" href="/case-studies.html">Case Studies</a>
+          <a class="hover:text-white glow-hover" href="/legacy-avatar">Legacy Avatar</a>
+          <a class="hover:text-white glow-hover" href="/about.html">About</a>
+          <a class="hover:text-white glow-hover" href="/resources.html">Resources</a>
+          <a class="hover:text-white glow-hover" href="/contact.html">Contact</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="/inquiry.html" class="px-3 py-2 text-sm rounded bg-aa-600 hover:bg-aa-700 font-semibold" aria-current="page">Submit an Inquiry</a>
+          <a href="/contact.html#schedule" class="px-3 py-2 text-sm rounded border border-white/20 hover:border-white/40 glow-hover">Book a Strategy Call</a>
+        </div>
+        <button id="mobileMenuBtn" class="md:hidden px-3 py-2 text-sm rounded border border-white/20" aria-controls="mobileMenu" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+    <div id="mobileMenu" class="md:hidden hidden border-b border-white/10 bg-neutral-950">
+      <nav class="px-6 py-3 text-sm">
+        <a class="block py-2 text-white/80 hover:text-white" href="/services.html">Services</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/case-studies.html">Case Studies</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/legacy-avatar">Legacy Avatar</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/about.html">About</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/resources.html">Resources</a>
+        <a class="block py-2 text-white/80 hover:text-white" href="/contact.html">Contact</a>
+        <a class="block py-2 text-white" href="/inquiry.html" aria-current="page">Submit an Inquiry</a>
+      </nav>
+    </div>
+
+    <main class="max-w-3xl mx-auto px-6 pt-12 pb-16">
+      <p class="text-aa-500 text-xs font-semibold uppercase tracking-wider">Inquiry</p>
+      <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold">Submit an Inquiry</h1>
+      <p class="mt-3 text-white/80 max-w-2xl">Send your question and we will follow up by email within one business day.</p>
+
+      <section class="mt-8">
+        <form id="inquiry-form" action="/thank-you.html" method="get" class="p-6 rounded-xl bg-white/[0.02] border border-white/10">
+          <div class="grid gap-4">
+            <div>
+              <label for="name" class="block text-sm font-medium">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium">What is your question?</label>
+              <textarea id="message" name="message" rows="6" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"></textarea>
+            </div>
+          </div>
+          <button id="submit-inquiry" type="submit" class="mt-6 px-5 py-2 rounded bg-aa-600 hover:bg-aa-700 font-semibold">Submit</button>
+          <p id="status" class="mt-3 text-sm text-white/70" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-8 text-sm text-white/70">&copy; <span id="year"></span> Altared Alchemie - <a class="underline" href="/legal/privacy.html">Privacy</a> &middot; <a class="underline" href="/legal/terms.html">Terms</a></div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const form = document.getElementById('inquiry-form');
+      const statusEl = document.getElementById('status');
+      const submitButton = document.getElementById('submit-inquiry');
+
+      form?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        if (!data.name || !data.email || !data.message) {
+          statusEl.textContent = 'Please complete all fields.';
+          return;
+        }
+        if (!String(data.email).includes('@')) {
+          statusEl.textContent = 'Please enter a valid email.';
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+        statusEl.textContent = 'Submitting your inquiry...';
+
+        try {
+          const response = await fetch('/api/contact-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: data.name,
+              email: data.email,
+              message: data.message,
+              formType: 'Inquiry'
+            })
+          });
+
+          if (!response.ok) {
+            const result = await response.json().catch(() => ({}));
+            throw new Error(result.error || 'Submission failed');
+          }
+
+          window.location.assign('/thank-you.html');
+        } catch (error) {
+          console.error('Inquiry submission error:', error);
+          statusEl.textContent = 'Error submitting inquiry. Please email us at jimmie@altaredalchemie.com.';
+          submitButton.disabled = false;
+          submitButton.textContent = 'Submit';
+        }
+      });
+
+      (function(){
+        const btn = document.getElementById('mobileMenuBtn');
+        const panel = document.getElementById('mobileMenu');
+        if (btn && panel) {
+          btn.addEventListener('click', () => {
+            const open = !panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', open);
+            btn.setAttribute('aria-expanded', String(!open));
+          });
+        }
+      })();
+    </script>
+    <script src="/chatbot.js"></script>
+  </body>
+</html>
