@@ -12,7 +12,7 @@ const AGREEMENT = {
     'altared-alchemie': { name: 'Jimmie Miller', email: 'jlmiller12s@gmail.com', organization: 'Altared Alchemie' }
   },
   terms: [
-    'Website pages and services listed in the Faith Haven House website statement of work.',
+    'Website pages and services listed in the Faith Haven House website statement of work, including SEO, AI enablement training, and three PowerPoint/PDF template builds.',
     'Faith Haven House waives the photoshoot and approved existing materials will be used.',
     'Launch: Monday, August 3, 2026 at 12:01 a.m. CST.',
     'Final payment expected within two to three calendar days after launch, August 5–6, 2026.'
