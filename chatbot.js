@@ -18,11 +18,11 @@
   const responses = {
     'services': {
       keywords: ['service', 'services', 'offer', 'what do you do', 'help with'],
-      answer: 'We offer several AI services:\n\n• Custom AI Websites - Lightning-fast development\n• AI Chatbot Integration - Smart customer support\n• AI Avatar Clones - Video content at scale\n• AI Training & Consulting - Team workshops\n\nWould you like to know more about any specific service?'
+      answer: 'Our core AI consulting services are:\n\n• AI Workflow Discovery - one workflow reviewed with a 90-day roadmap\n• Practical AI Team Workshops - hands-on training for real work\n• 30-Day Workflow Pilots - one solution configured, tested, and handed off\n\nWe also support websites, creative systems, and brand photography. Which outcome are you working toward?'
     },
     'pricing': {
       keywords: ['price', 'pricing', 'cost', 'how much', 'expensive', 'budget'],
-      answer: 'Our pricing is tailored to your specific needs and project scope. We offer:\n\n• Strategy calls (Free 15-min consultation)\n• Pilot programs (Starting at $2,500)\n• Custom projects ($5,000 - $90,000+)\n\nWould you like to schedule a free consultation to discuss your project?'
+      answer: 'Our entry points are clear and scope-based:\n\n• Free 15-minute fit call\n• AI Workflow Discovery - $750 fixed\n• Practical AI Team Workshop - from $600\n• 30-Day Workflow Pilot - from $2,500\n• Websites - from $1,500\n• Brand photography - from $350\n\nWould you like to schedule a free fit call?'
     },
     'contact': {
       keywords: ['contact', 'reach', 'email', 'phone', 'call', 'schedule', 'meeting'],
