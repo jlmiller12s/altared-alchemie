@@ -8,6 +8,13 @@
       "destination": "/legacy-avatar/index.html"
     }
   ],
+  "redirects": [
+    {
+      "source": "/atpt-phase-one-agreement",
+      "destination": "/atpt-agreement",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

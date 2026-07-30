@@ -7,7 +7,7 @@ const AGREEMENT = {
   id: 'ATPT-P1-2026-0729',
   version: '2026-07-29',
   title: 'EMC Studios / ATPT Phase One Strategic Concept and Partner Prototype',
-  url: 'https://www.altaredalchemie.com/atpt-phase-one-agreement',
+  url: 'https://www.altaredalchemie.com/atpt-agreement',
   pdfUrl: 'https://www.altaredalchemie.com/docs/Altared_Alchemie_EMC_ATPT_Phase_One_SOW.pdf',
   providerEmail: 'jlmiller12s@gmail.com',
   organizations: {
