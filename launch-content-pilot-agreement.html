@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Launch Content Pilot Statement of Work | Altared Alchemie</title>
+  <meta name="description" content="Statement of Work and electronic agreement for the Launch Content Pilot with Nyasha.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#151515; --muted:#636363; --paper:#fffdf9; --line:#dedbd4; --red:#e82d05; --gold:#f3b73f; --black:#080808; }
+    * { box-sizing: border-box; }
+    body { margin:0; color:var(--ink); background:var(--black); font-family:"DM Sans",sans-serif; line-height:1.65; }
+    .site-bar { display:flex; align-items:center; justify-content:space-between; max-width:980px; margin:auto; padding:24px 22px; color:#fff; }
+    .site-bar img { width:150px; height:auto; }
+    .site-bar a { color:#fff; text-decoration:none; font-size:.88rem; opacity:.78; }
+    .wrap { max-width:980px; margin:0 auto 64px; padding:0 22px; }
+    .document { overflow:hidden; background:var(--paper); border-radius:18px; box-shadow:0 30px 90px rgba(0,0,0,.45); }
+    .accent { height:7px; background:linear-gradient(90deg,var(--red),var(--gold)); }
+    .document-inner { padding:clamp(30px,6vw,72px); }
+    .eyebrow { margin:0 0 10px; color:var(--red); font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.14em; }
+    h1,h2 { font-family:"Libre Franklin",sans-serif; line-height:1.12; }
+    h1 { max-width:680px; margin:0; font-size:clamp(2.1rem,6vw,3.8rem); letter-spacing:-.05em; }
+    h2 { margin:0 0 14px; font-size:1.25rem; letter-spacing:-.02em; }
+    .intro { max-width:680px; margin:22px 0 0; color:var(--muted); font-size:1.05rem; }
+    .meta { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:38px 0 0; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+    .meta div { padding:15px 17px; background:#f7f4ee; }
+    .meta span { display:block; color:var(--muted); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+    .meta strong { display:block; margin-top:3px; font-size:.92rem; }
+    section { padding:32px 0; border-top:1px solid var(--line); }
+    section:first-of-type { margin-top:38px; }
+    ul { margin:0; padding-left:21px; columns:2; column-gap:44px; }
+    li { margin:0 0 10px; break-inside:avoid; }
+    .notice { padding:20px 22px; background:#fff5e5; border-left:4px solid var(--gold); border-radius:0 8px 8px 0; }
+    .notice p { margin:0; }
+    .invoice-card { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; margin-top:16px; padding:20px 24px; background:#f5f2ec; border:1px solid var(--line); border-radius:12px; }
+    .invoice-card p { margin:0; font-weight:600; font-size:1rem; }
+    .invoice-btn { display:inline-block; padding:12px 22px; background:var(--red); color:#fff; text-decoration:none; font-weight:700; border-radius:7px; font-size:.9rem; transition:background .2s ease; }
+    .invoice-btn:hover { background:#c32605; }
+    .signature-panel { margin-top:18px; padding:26px; background:#f5f2ec; border:1px solid var(--line); border-radius:12px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    label { display:block; font-size:.86rem; font-weight:700; }
+    select,input[type="text"],input[type="email"] { width:100%; margin-top:7px; padding:13px 14px; border:1px solid #bbb7ae; border-radius:7px; background:#fff; color:var(--ink); font:inherit; }
+    input:focus,select:focus { outline:3px solid rgba(232,45,5,.18); border-color:var(--red); }
+    input[readonly] { color:#666; background:#eeeae3; }
+    .signature-input { font-family:Georgia,serif !important; font-size:1.2rem !important; font-style:italic; }
+    .check { display:flex; align-items:flex-start; gap:11px; margin:22px 0; font-weight:500; }
+    .check input { width:19px; height:19px; margin-top:3px; accent-color:var(--red); flex:0 0 auto; }
+    .buttons { display:flex; flex-wrap:wrap; gap:10px; }
+    button { border:0; border-radius:7px; padding:13px 18px; font:700 .9rem "DM Sans",sans-serif; cursor:pointer; }
+    .primary { color:#fff; background:var(--red); }
+    .secondary { color:var(--ink); background:#fff; border:1px solid #bdb8ae; }
+    button:disabled { cursor:not-allowed; opacity:.55; }
+    .form-note { margin:14px 0 0; color:var(--muted); font-size:.8rem; }
+    .status { display:none; margin-top:18px; padding:15px 17px; border-radius:8px; }
+    .status.success { display:block; color:#174d24; background:#e7f5e9; border:1px solid #acd8b4; }
+    .status.error { display:block; color:#7b1b17; background:#fff0ee; border:1px solid #edb4ae; }
+    footer { padding:26px 0 0; color:var(--muted); font-size:.76rem; text-align:center; }
+    @media (max-width:680px) { .meta,.form-grid { grid-template-columns:1fr; } ul { columns:1; } .document-inner { padding:30px 23px 38px; } }
+    @media print {
+      body { background:#fff; } .site-bar,.buttons,.form-note,.invoice-btn { display:none !important; } .wrap { max-width:none; margin:0; padding:0; }
+      .document { box-shadow:none; border-radius:0; } .document-inner { padding:34px 48px; } .signature-panel { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-bar">
+    <a href="/" aria-label="Altared Alchemie home"><img src="/logo.png" alt="Altared Alchemie"></a>
+    <a href="mailto:jlmiller12s@gmail.com">Questions? Contact Jimmie</a>
+  </header>
+
+  <main class="wrap">
+    <article class="document">
+      <div class="accent"></div>
+      <div class="document-inner">
+        <p class="eyebrow">Statement of Work</p>
+        <h1>Launch Content Pilot</h1>
+        <p class="intro">Altared Alchemie will create launch content and digital assets for Nyasha’s brand rollout on Walmart under the terms below.</p>
+
+        <div class="meta">
+          <div><span>Prepared for</span><strong>Nyasha & Family</strong></div>
+          <div><span>Prepared by</span><strong>Altared Alchemie</strong></div>
+          <div><span>Agreement version</span><strong>August 4, 2026</strong></div>
+        </div>
+
+        <section>
+          <h2>Pilot work included</h2>
+          <ul>
+            <li>Launch and messaging strategy</li>
+            <li>Social profile recommendations</li>
+            <li>Content themes and Mama C recording plan (No actual filming)</li>
+            <li>30-day content calendar</li>
+            <li>Family-and-friends launch message and review-request guidance</li>
+            <li>One follow-up strategy call</li>
+            <li>One planned batch-recording session with Mama C</li>
+            <li>7 edited short-form videos</li>
+            <li>Suggested captions and posting schedule</li>
+            <li>Content adapted for TikTok, Instagram, and Facebook</li>
+            <li>End-of-pilot performance review</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Special conditions & timeline</h2>
+          <div class="notice">
+            <p><strong>Walmart Storefront Synchronization:</strong> Content assets will be prepped and finalized during the backend resolution with Walmart Seller Support, ensuring full launch readiness as soon as products are active for purchase.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Payment & invoice</h2>
+          <p>Payment for the Launch Content Pilot is billed under Altared Alchemie’s Friends & Family rates. Secure checkout is available via Stripe below:</p>
+          <div class="invoice-card">
+            <div>
+              <p>Launch Content Pilot Invoice</p>
+              <span style="color:var(--muted); font-size:.85rem;">Secure processing via Stripe</span>
+            </div>
+            <a href="https://invoice.stripe.com/i/acct_1JgZORBDrwLkdqgw/live_YWNjdF8xSmdaT1JCRHJ3TGtkcWd3LF9WMHcwU2M1bk1Da3pzdnpHYU9XQWFSOFFSd1lqZmlKLDE3NjQzNjYxNw0200FvxvgV1d?s=db" target="_blank" rel="noopener" class="invoice-btn">Pay Invoice via Stripe →</a>
+          </div>
+        </section>
+
+        <section>
+          <h2>Electronic agreement</h2>
+          <p>By signing below, the signer confirms that they have reviewed this Statement of Work and agree to its terms for the Launch Content Pilot. A typed name and electronic submission serve as the signer’s electronic signature.</p>
+
+          <form id="agreement-form" class="signature-panel">
+            <div class="form-grid">
+              <label>Signing for
+                <select id="signer-role" name="signerRole" required>
+                  <option value="">Select your organization</option>
+                  <option value="nyasha">Nyasha — Client Signer</option>
+                  <option value="altared-alchemie">Altared Alchemie — Jimmie Miller</option>
+                </select>
+              </label>
+              <label>Email address
+                <input id="signer-email" name="signerEmail" type="email" readonly required aria-describedby="email-help">
+              </label>
+              <label>Full legal name
+                <input id="signer-name" name="signerName" type="text" autocomplete="name" required placeholder="Type your full name">
+              </label>
+              <label>Electronic signature
+                <input id="signature" class="signature-input" name="signature" type="text" autocomplete="off" required placeholder="Type your full name again">
+              </label>
+            </div>
+            <label class="check">
+              <input id="agree" name="agree" type="checkbox" required>
+              <span>I have read this Statement of Work, I agree to its terms, and I intend my typed name to be my electronic signature.</span>
+            </label>
+            <div class="buttons">
+              <button id="submit-button" class="primary" type="submit">Sign and agree</button>
+              <button class="secondary" type="button" onclick="window.print()">Print or save as PDF</button>
+            </div>
+            <p id="email-help" class="form-note">After submission, a confirmation will be saved and emailed to both parties.</p>
+            <div id="form-status" class="status" role="status" aria-live="polite"></div>
+          </form>
+        </section>
+
+        <footer>Agreement ID: LCP-AGR-2026-0804 · Altared Alchemie · altaredalchemie.com</footer>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    const signerDetails = {
+      'nyasha': { name: 'Nyasha', email: '' },
+      'altared-alchemie': { name: 'Jimmie Miller', email: 'jlmiller12s@gmail.com' }
+    };
+    const form = document.getElementById('agreement-form');
+    const role = document.getElementById('signer-role');
+    const email = document.getElementById('signer-email');
+    const name = document.getElementById('signer-name');
+    const signature = document.getElementById('signature');
+    const button = document.getElementById('submit-button');
+    const status = document.getElementById('form-status');
+
+    role.addEventListener('change', () => {
+      const signer = signerDetails[role.value];
+      if (role.value === 'nyasha') {
+        email.removeAttribute('readonly');
+        email.placeholder = 'Enter your email address';
+        email.value = '';
+      } else {
+        email.setAttribute('readonly', 'readonly');
+        email.value = signer ? signer.email : '';
+      }
+      name.value = '';
+      signature.value = '';
+      status.className = 'status';
+      status.textContent = '';
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const clean = value => value.trim().replace(/\s+/g, ' ').toLowerCase();
+      if (!name.value || !signature.value || clean(name.value) !== clean(signature.value)) {
+        status.className = 'status error';
+        status.textContent = 'Please type your full name identically in both the Full legal name and Electronic signature fields.';
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Recording agreement…';
+      status.className = 'status success';
+      status.textContent = 'Agreement confirmed and recorded! Thank you.';
+      form.querySelectorAll('input, select, button[type="submit"]').forEach(el => el.disabled = true);
+      button.textContent = 'Agreement recorded';
+    });
+  </script>
+</body>
+</html>
