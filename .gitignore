@@ -32,3 +32,4 @@ legacy-portal/prisma/dev.db
 
 # Misc
 .vercelignore
+.env*

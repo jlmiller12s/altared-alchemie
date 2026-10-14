@@ -332,15 +332,15 @@
                 <li>• Clear timelines and deliverables</li>
               </ul>
             </div>
-            <form id="lead-form" class="p-6 rounded-xl bg-white/[0.02] border border-white/10">
+            <form data-protected-form="New Lead" id="lead-form" class="p-6 rounded-xl bg-white/[0.02] border border-white/10">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="name" class="block text-sm">Name</label>
-                  <input id="name" name="name" type="text" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                  <input id="name" name="name" maxlength="120" type="text" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
                 </div>
                 <div>
                   <label for="email" class="block text-sm">Email</label>
-                  <input id="email" name="email" type="email" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
+                  <input id="email" name="email" maxlength="254" type="email" required class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600" />
                 </div>
                 <div class="sm:col-span-2">
                   <label for="need" class="block text-sm">Primary need</label>
@@ -358,7 +358,7 @@
                 </div>
                 <div class="sm:col-span-2">
                   <label for="message" class="block text-sm">Message (optional)</label>
-                  <textarea id="message" name="message" rows="4" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"></textarea>
+                  <textarea id="message" name="message" maxlength="5000" rows="4" class="mt-1 w-full rounded bg-white/[0.03] border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-aa-600"></textarea>
                 </div>
                 <div class="sm:col-span-2 flex items-center gap-2">
                   <input id="consent" name="consent" type="checkbox" required class="h-4 w-4 rounded border-white/20 bg-white/5">
@@ -366,11 +366,17 @@
                 </div>
               </div>
               <div class="mt-6 flex gap-3">
-                <button type="submit" class="px-4 py-2 rounded bg-aa-600 hover:bg-aa-700 font-medium">Submit</button>
+                <button type="submit" disabled class="px-4 py-2 rounded bg-aa-600 hover:bg-aa-700 font-medium">Submit</button>
                 <a href="/contact.html#schedule" class="px-4 py-2 rounded border border-white/20 hover:border-white/40">Or book a call</a>
               </div>
               <p id="lead-status" class="mt-3 text-sm text-white/70" role="status" aria-live="polite"></p>
-            </form>
+
+          <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
+            <label>Leave this field empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div data-security-widget class="mt-4"></div>
+          <noscript>Please enable JavaScript or email <a href="mailto:jimmie@altaredalchemie.com">jimmie@altaredalchemie.com</a>.</noscript>
+        </form>
           </div>
         </div>
       </section>
@@ -448,43 +454,6 @@
       if (yearEl) yearEl.textContent = new Date().getFullYear();
       const form = document.getElementById('lead-form');
       const statusEl = document.getElementById('lead-status');
-      form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(form).entries());
-        if (!data.email || !String(data.email).includes('@')) {
-          statusEl.textContent = 'Please enter a valid email.';
-          return;
-        }
-        
-        statusEl.textContent = 'Sending…';
-        
-        try {
-          const response = await fetch('/api/contact-form', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: data.name,
-              email: data.email,
-              need: data.need,
-              message: data.message,
-              formType: 'New Lead'
-            })
-          });
-          
-          const result = await response.json();
-          
-          if (response.ok) {
-            statusEl.textContent = '✓ Message sent! We\'ll reply within one business day.';
-            form.reset();
-          } else {
-            statusEl.textContent = `Error: ${result.error || 'Failed to send message'}`;
-          }
-        } catch (error) {
-          console.error('Form submission error:', error);
-          statusEl.textContent = 'Error sending message. Please email us at jimmie@altaredalchemie.com';
-        }
-      });
-
       // GSAP animations
       if (window.gsap) {
         gsap.registerPlugin(ScrollTrigger);
@@ -940,5 +909,6 @@
       })();
     </script>
     <script src="/chatbot.js"></script>
+  <script src="/form-security.js" defer></script>
   </body>
 </html>

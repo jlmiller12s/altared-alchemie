@@ -4,6 +4,9 @@ export default async function handler(req, res) {
   // Restrict CORS to your domain only
   const allowedOrigins = ['https://altaredalchemie.com', 'https://www.altaredalchemie.com'];
   const origin = req.headers.origin;
+  if (!allowedOrigins.includes(origin)) {
+    return res.status(403).json({ ok: false, error: 'Request origin not allowed' });
+  }
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }
@@ -66,8 +69,8 @@ export default async function handler(req, res) {
         },
       ],
       mode: 'payment',
-      success_url: `${req.headers.origin || 'https://altaredalchemie.com'}/downloads?success=true&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin || 'https://altaredalchemie.com'}/downloads?canceled=true`,
+      success_url: `https://altaredalchemie.com/downloads?success=true&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://altaredalchemie.com/downloads?canceled=true`,
       metadata: {
         customer_name: name,
         platform: platform,
@@ -79,7 +82,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, sessionId: session.id });
   } catch (err) {
     console.error('Stripe checkout error:', err);
-    return res.status(500).json({ ok: false, error: err.message || 'Failed to create checkout session' });
+    return res.status(500).json({ ok: false, error: 'Failed to create checkout session' });
   }
 }
 
